@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tiny Shakespeare — Char LM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">✒︎</span>
+    <div class="brand-text">
+      <h1>Tiny Shakespeare</h1>
+      <p>a character-level bigram language model, trained live</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="talk" role="tab" aria-selected="true">Talk</button>
+    <button class="tab-btn" data-tab="train" role="tab" aria-selected="false">Train</button>
+  </nav>
+  <div class="status-chip" id="status-chip">
+    <span class="dot" id="status-dot"></span>
+    <span id="status-text">loading…</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================ TALK ============================ -->
+  <section id="tab-talk" class="tab-panel active">
+    <div class="panel-grid">
+      <div class="card">
+        <h2 class="card-title">Prompt the model</h2>
+        <p class="card-sub">Give it a seed of text — it continues one character at a time.</p>
+
+        <label class="field-label" for="talk-prompt">Prompt</label>
+        <textarea id="talk-prompt" rows="3" placeholder="ROMEO:">ROMEO:</textarea>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="talk-length">Length</label>
+            <input id="talk-length" type="range" min="20" max="600" value="240" step="10">
+            <span class="field-val" id="talk-length-val">240 chars</span>
+          </div>
+          <div class="field">
+            <label class="field-label" for="talk-temp">Temperature</label>
+            <input id="talk-temp" type="range" min="0.1" max="2.0" value="1.0" step="0.1">
+            <span class="field-val" id="talk-temp-val">1.0</span>
+          </div>
+        </div>
+
+        <button id="talk-generate-btn" class="btn btn-primary">Generate</button>
+        <span class="inline-note" id="talk-note"></span>
+      </div>
+
+      <div class="card card-output">
+        <div class="output-header">
+          <h2 class="card-title">Output</h2>
+          <div class="legend">
+            <span class="legend-label">token confidence</span>
+            <span class="legend-bar"></span>
+            <span class="legend-caption">unsure → sure</span>
+          </div>
+        </div>
+        <div id="talk-output" class="token-stream placeholder">
+          Generated text will appear here, one character at a time, tinted by how
+          confident the model was in each choice.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TRAIN ============================ -->
+  <section id="tab-train" class="tab-panel">
+
+    <div class="card controls-card">
+      <h2 class="card-title">Training run</h2>
+      <p class="card-sub">Bigram model · AdamW · warmup + cosine decay · gradient clipping</p>
+
+      <div class="config-grid">
+        <div class="field">
+          <label class="field-label" for="cfg-max-iters">Max iterations</label>
+          <input id="cfg-max-iters" type="number" value="3000" min="10" step="10">
+        </div>
+        <div class="field">
+          <label class="field-label" for="cfg-batch-size">Batch size</label>
+          <input id="cfg-batch-size" type="number" value="32" min="1" step="1">
+        </div>
+        <div class="field">
+          <label class="field-label" for="cfg-block-size">Block size</label>
+          <input id="cfg-block-size" type="number" value="8" min="1" step="1">
+        </div>
+        <div class="field">
+          <label class="field-label" for="cfg-lr">Learning rate</label>
+          <input id="cfg-lr" type="number" value="0.01" min="0.0001" step="0.001">
+        </div>
+        <div class="field">
+          <label class="field-label" for="cfg-eval-interval">Eval interval</label>
+          <input id="cfg-eval-interval" type="number" value="200" min="10" step="10">
+        </div>
+        <div class="field">
+          <label class="field-label" for="cfg-warmup">Warmup iters</label>
+          <input id="cfg-warmup" type="number" value="100" min="0" step="10">
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button id="train-start-btn" class="btn btn-primary">Start training</button>
+        <button id="train-stop-btn" class="btn btn-ghost" disabled>Stop</button>
+        <button id="train-reset-btn" class="btn btn-ghost">Reset model</button>
+        <div class="progress-wrap">
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          <span id="progress-text">step 0 / 0</span>
+        </div>
+      </div>
+
+      <div id="train-banner" class="banner hidden"></div>
+    </div>
+
+    <div class="card sample-card">
+      <div class="output-header">
+        <h2 class="card-title">Live sample</h2>
+        <div class="legend">
+          <span class="legend-label">token confidence</span>
+          <span class="legend-bar"></span>
+          <span class="legend-caption">unsure → sure</span>
+        </div>
+      </div>
+      <div id="train-sample" class="token-stream placeholder">
+        A sample generation will appear here after the first evaluation pass,
+        so you can watch the prose sharpen up as training proceeds.
+      </div>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="card chart-card">
+        <h3>Loss</h3>
+        <canvas id="chart-loss"></canvas>
+      </div>
+      <div class="card chart-card">
+        <h3>Perplexity</h3>
+        <canvas id="chart-ppl"></canvas>
+      </div>
+      <div class="card chart-card">
+        <h3>Learning rate</h3>
+        <canvas id="chart-lr"></canvas>
+      </div>
+      <div class="card chart-card">
+        <h3>Gradient norm</h3>
+        <canvas id="chart-gradnorm"></canvas>
+      </div>
+      <div class="card chart-card">
+        <h3>Parameter norm</h3>
+        <canvas id="chart-paramnorm"></canvas>
+      </div>
+      <div class="card chart-card">
+        <h3>Tokens processed</h3>
+        <canvas id="chart-tokens"></canvas>
+      </div>
+    </div>
+
+    <details class="reference-card">
+      <summary>What to watch for</summary>
+      <table class="reference-table">
+        <thead>
+          <tr><th>Metric</th><th>What you want to see</th><th>Warning sign</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Training loss</td><td>Smoothly decreasing</td><td>Explodes, oscillates, becomes NaN</td></tr>
+          <tr><td>Validation loss</td><td>Decreasing, then plateaus</td><td>Starts rising → overfitting</td></tr>
+          <tr><td>Train perplexity</td><td>Decreasing</td><td>Increasing</td></tr>
+          <tr><td>Validation perplexity</td><td>Decreasing</td><td>Increasing</td></tr>
+          <tr><td>Learning rate</td><td>Follows the scheduler</td><td>Unexpected jumps or zero</td></tr>
+          <tr><td>Gradient norm</td><td>Relatively stable</td><td>Huge spikes → exploding gradients</td></tr>
+          <tr><td>Parameter norm</td><td>Relatively stable</td><td>Sudden explosion or collapse</td></tr>
+          <tr><td>Tokens processed</td><td>Continuously increasing</td><td>Stalls or repeats</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+  </section>
+
+</main>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

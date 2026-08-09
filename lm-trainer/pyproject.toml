@@ -1,0 +1,16 @@
+[project]
+name = "tinyshakespeare-lm-trainer"
+version = "0.1.0"
+description = "FastAPI app to train and chat with a tiny character-level language model on the Tiny Shakespeare dataset, with a live training dashboard."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "jinja2>=3.1.0",
+    "torch>=2.2.0",
+    "python-multipart>=0.0.9",
+]
+
+[tool.uv]
+package = false
