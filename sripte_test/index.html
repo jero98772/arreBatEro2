@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pay $1</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <h2>Pay $1.00 to get tokens</h2>
+  <div id="payment-element"></div>
+  <button id="pay-btn">Pay $1.00</button>
+  <p id="message"></p>
+
+  <script>
+    const stripe = Stripe("pk_test_YOUR_PUBLISHABLE_KEY");
+    const userId = "user_123"; // from your auth system
+
+    async function init() {
+      // 1. Ask backend to create a PaymentIntent
+      const res = await fetch("http://localhost:8000/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: userId }),
+      });
+      const { client_secret } = await res.json();
+
+      // 2. Mount Stripe's payment UI
+      const elements = stripe.elements({ clientSecret: client_secret });
+      const paymentElement = elements.create("payment");
+      paymentElement.mount("#payment-element");
+
+      // 3. Handle Pay button
+      document.getElementById("pay-btn").onclick = async () => {
+        const { error } = await stripe.confirmPayment({
+          elements,
+          confirmParams: {
+            return_url: "http://localhost:8000/success", // redirect after pay
+          },
+        });
+        if (error) {
+          document.getElementById("message").textContent = error.message;
+        }
+      };
+    }
+
+    init();
+  </script>
+</body>
+</html>
