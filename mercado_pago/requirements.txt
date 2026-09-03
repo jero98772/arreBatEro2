@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+mercadopago
+python-dotenv
+httpx
