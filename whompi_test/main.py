@@ -18,14 +18,18 @@ ABOUT TOKENS:
 """
 
 import hashlib
+import os
 import uuid
 import asyncio
 import httpx
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, EmailStr
 from typing import Optional
+
+load_dotenv()
 
 # ─────────────────────────────────────────────────────────────
 # CONFIGURATION — replace with your Wompi dashboard keys
@@ -33,15 +37,20 @@ from typing import Optional
 # Get your keys at: https://comercios.wompi.co
 # For testing, use the SANDBOX keys (pub_test_... / prv_test_...)
 
-WOMPI_PUBLIC_KEY = "pub_test_YOUR_PUBLIC_KEY_HERE"  # ← replace
-WOMPI_PRIVATE_KEY = "prv_test_YOUR_PRIVATE_KEY_HERE"  # ← replace
-WOMPI_INTEGRITY_SECRET = "test_integrity_YOUR_SECRET"  # ← replace (found in dashboard under "Secrets de integración")
+WOMPI_PUBLIC_KEY = os.getenv("WOMPI_PUBLIC_KEY")
+WOMPI_PRIVATE_KEY = os.getenv("WOMPI_PRIVATE_KEY")
+WOMPI_INTEGRITY_SECRET = os.getenv("WOMPI_INTEGRITY_SECRET")
+
+if not WOMPI_PUBLIC_KEY or not WOMPI_PRIVATE_KEY or not WOMPI_INTEGRITY_SECRET:
+    raise RuntimeError(
+        "Missing Wompi credentials. Copy .env.example to .env and fill in your keys."
+    )
 
 # Sandbox base URL (use https://production.wompi.co/v1 for production)
-WOMPI_BASE_URL = "https://sandbox.wompi.co/v1"
+WOMPI_BASE_URL = os.getenv("WOMPI_BASE_URL", "https://sandbox.wompi.co/v1")
 
 # ~$1 USD in Colombian Pesos cents (adjust rate as needed)
-AMOUNT_IN_CENTS = 420000  # $4,200 COP = ~$1 USD
+AMOUNT_IN_CENTS = int(os.getenv("AMOUNT_IN_CENTS", "420000"))  # $4,200 COP = ~$1 USD
 
 
 # ─────────────────────────────────────────────────────────────
