@@ -1,0 +1,6 @@
+numpy
+ml_dtypes
+pillow
+torch
+torchvision
+huggingface_hub
