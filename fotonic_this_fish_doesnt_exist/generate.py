@@ -38,9 +38,8 @@ ups = [
 ]
 
 
-def forward(z):
-    x = ai.linear_fprop(bf(z), fc, device_id=DEVICE_ID)
-    x = np.asarray(x, dtype=np.float32).reshape(-1, 512, 4, 4)
+# batchnorm2d and conv_transpose only accept a batch of 1, so run them per image
+def deconv_stack(x):
     for i in range(4):
         mean, var, gamma, beta = bns[i]
         x = ai.batchnorm2d_fprop(
@@ -50,7 +49,14 @@ def forward(z):
         x = ai.conv_transpose_fprop_preloaded_weights(
             bf(np.asarray(x, dtype=np.float32)), ups[i], 1, 2, 1, 0
         )
-    x = np.asarray(x, dtype=np.float32)
+        x = np.asarray(x, dtype=np.float32)
+    return x
+
+
+def forward(z):
+    x = ai.linear_fprop(bf(z), fc, device_id=DEVICE_ID)
+    x = np.asarray(x, dtype=np.float32).reshape(-1, 512, 4, 4)
+    x = np.concatenate([deconv_stack(x[j : j + 1]) for j in range(len(x))])
     x = ai.sigmoid_fprop(bf(2.0 * x), device_id=DEVICE_ID)
     x = np.asarray(x, dtype=np.float32) * 255.0
     return np.clip(x, 0, 255).astype(np.uint8)
