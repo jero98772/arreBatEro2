@@ -1,0 +1,259 @@
+2026-10-16 13:44:30,547 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 13:44:30,553 [INFO] Linear backend: torch-fallback
+2026-10-16 13:44:30,582 [INFO] device=cuda
+2026-10-16 13:44:30,583 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 13:44:30,583 [INFO] device=cuda
+2026-10-16 13:44:30,713 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 13:44:40,235 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 13:44:40,241 [INFO] Linear backend: torch-fallback
+2026-10-16 13:44:40,241 [INFO] device=cuda
+2026-10-16 13:44:40,241 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 13:44:40,241 [INFO] device=cuda
+2026-10-16 13:44:40,343 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 13:44:57,807 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 13:44:57,815 [INFO] Linear backend: torch-fallback
+2026-10-16 13:44:57,815 [INFO] device=cuda
+2026-10-16 13:44:57,816 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 13:44:57,817 [INFO] device=cuda
+2026-10-16 13:44:57,913 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 13:44:58,320 [INFO] JAX version 0.11.1 available.
+2026-10-16 13:44:58,844 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-16 13:44:58,932 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 13:44:59,020 [INFO] HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 13:44:59,110 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 13:44:59,519 [INFO] HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/tatsu-lab/alpaca/tatsu-lab/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 13:44:59,619 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/revision/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 13:44:59,710 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-10-16 13:44:59,990 [INFO] HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=tatsu-lab/alpaca "HTTP/1.1 200 OK"
+2026-10-16 13:45:00,085 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-16 13:45:00,175 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-10-16 13:45:00,266 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-10-16 13:45:00,389 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/data/train-00000-of-00001-a09b74b3ef9c3b56.parquet "HTTP/1.1 302 Found"
+2026-10-16 13:45:00,492 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/xet-read-token/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 14:22:03,396 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:22:03,402 [INFO] Linear backend: torch-fallback
+2026-10-16 14:22:03,403 [INFO] device=cuda
+2026-10-16 14:22:03,403 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:22:03,403 [INFO] device=cuda
+2026-10-16 14:26:16,210 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:26:16,216 [INFO] Linear backend: torch-fallback
+2026-10-16 14:26:16,217 [INFO] device=cuda
+2026-10-16 14:26:16,217 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:26:16,217 [INFO] device=cuda
+2026-10-16 14:26:59,840 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:26:59,846 [INFO] Linear backend: torch-fallback
+2026-10-16 14:26:59,846 [INFO] device=cuda
+2026-10-16 14:26:59,846 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:26:59,846 [INFO] device=cuda
+2026-10-16 14:26:59,958 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:27:28,285 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:27:28,293 [INFO] Linear backend: torch-fallback
+2026-10-16 14:27:28,294 [INFO] device=cuda
+2026-10-16 14:27:28,294 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:27:28,294 [INFO] device=cuda
+2026-10-16 14:27:28,408 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:27:28,744 [INFO] JAX version 0.11.1 available.
+2026-10-16 14:27:29,253 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-16 14:27:29,330 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 14:27:29,417 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:27:29,731 [INFO] HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/tatsu-lab/alpaca/tatsu-lab/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:27:29,823 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/revision/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 14:27:29,912 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-10-16 14:27:30,302 [INFO] HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=tatsu-lab/alpaca "HTTP/1.1 200 OK"
+2026-10-16 14:27:30,394 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:27:30,482 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:27:30,573 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-10-16 14:27:47,811 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:27:47,819 [INFO] Linear backend: torch-fallback
+2026-10-16 14:27:47,819 [INFO] device=cuda
+2026-10-16 14:27:47,820 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:27:47,820 [INFO] device=cuda
+2026-10-16 14:28:31,205 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:28:31,213 [INFO] Linear backend: torch-fallback
+2026-10-16 14:28:31,213 [INFO] device=cuda
+2026-10-16 14:28:31,213 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:28:31,214 [INFO] device=cuda
+2026-10-16 14:28:31,318 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:28:31,622 [INFO] JAX version 0.11.1 available.
+2026-10-16 14:28:32,065 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-16 14:28:32,080 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 14:28:32,167 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:28:35,339 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/revision/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 14:28:35,425 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-10-16 14:28:35,721 [INFO] HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=tatsu-lab/alpaca "HTTP/1.1 200 OK"
+2026-10-16 14:28:35,814 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:28:35,902 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:28:35,994 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-10-16 14:29:17,190 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:29:17,196 [INFO] Linear backend: torch-fallback
+2026-10-16 14:29:17,197 [INFO] device=cuda
+2026-10-16 14:29:17,197 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:29:17,197 [INFO] device=cuda
+2026-10-16 14:29:33,182 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:29:33,193 [INFO] Linear backend: torch-fallback
+2026-10-16 14:29:33,193 [INFO] device=cuda
+2026-10-16 14:29:33,194 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:29:33,194 [INFO] device=cuda
+2026-10-16 14:29:33,324 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:29:40,917 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:29:40,926 [INFO] Linear backend: torch-fallback
+2026-10-16 14:29:40,926 [INFO] device=cuda
+2026-10-16 14:29:40,927 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:29:40,927 [INFO] device=cuda
+2026-10-16 14:31:23,846 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:31:23,853 [INFO] Linear backend: torch-fallback
+2026-10-16 14:31:23,853 [INFO] device=cuda
+2026-10-16 14:31:23,854 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:31:23,854 [INFO] device=cuda
+2026-10-16 14:31:33,891 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:31:33,898 [INFO] Linear backend: torch-fallback
+2026-10-16 14:31:33,898 [INFO] device=cuda
+2026-10-16 14:31:33,899 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:31:33,899 [INFO] device=cuda
+2026-10-16 14:32:52,632 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:32:52,641 [INFO] Linear backend: torch-fallback
+2026-10-16 14:32:52,641 [INFO] device=cuda
+2026-10-16 14:32:52,641 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:32:52,642 [INFO] device=cuda
+2026-10-16 14:32:52,795 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:33:02,912 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:33:02,918 [INFO] Linear backend: torch-fallback
+2026-10-16 14:33:02,919 [INFO] device=cuda
+2026-10-16 14:33:02,919 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:33:02,919 [INFO] device=cuda
+2026-10-16 14:33:03,125 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:33:03,475 [INFO] JAX version 0.11.1 available.
+2026-10-16 14:33:03,917 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-16 14:33:03,933 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 14:33:04,020 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:33:05,915 [INFO] HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/tatsu-lab/alpaca/tatsu-lab/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:33:06,009 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/revision/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 14:33:06,099 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-10-16 14:33:06,466 [INFO] HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=tatsu-lab/alpaca "HTTP/1.1 200 OK"
+2026-10-16 14:33:06,583 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:33:06,674 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:33:06,774 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-10-16 14:35:45,204 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:35:45,213 [INFO] Linear backend: torch-fallback
+2026-10-16 14:35:45,214 [INFO] device=cuda
+2026-10-16 14:35:45,214 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:35:45,214 [INFO] device=cuda
+2026-10-16 14:35:45,353 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:35:52,294 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:35:52,300 [INFO] Linear backend: torch-fallback
+2026-10-16 14:35:52,300 [INFO] device=cuda
+2026-10-16 14:35:52,301 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:35:52,301 [INFO] device=cuda
+2026-10-16 14:35:52,418 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:36:11,976 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:36:11,982 [INFO] Linear backend: torch-fallback
+2026-10-16 14:36:11,983 [INFO] device=cuda
+2026-10-16 14:36:11,983 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:36:11,983 [INFO] device=cuda
+2026-10-16 14:36:12,106 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:36:47,631 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:36:47,637 [INFO] Linear backend: torch-fallback
+2026-10-16 14:36:47,638 [INFO] device=cuda
+2026-10-16 14:36:47,638 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:36:47,638 [INFO] device=cuda
+2026-10-16 14:36:47,763 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:36:58,764 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:36:58,770 [INFO] Linear backend: torch-fallback
+2026-10-16 14:36:58,771 [INFO] device=cuda
+2026-10-16 14:36:58,771 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:36:58,771 [INFO] device=cuda
+2026-10-16 14:36:58,886 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:40:43,440 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:40:43,447 [INFO] Linear backend: torch-fallback
+2026-10-16 14:40:43,447 [INFO] device=cuda
+2026-10-16 14:40:43,448 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:40:43,448 [INFO] device=cuda
+2026-10-16 14:40:43,602 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:40:44,014 [INFO] JAX version 0.11.1 available.
+2026-10-16 14:40:44,450 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-16 14:40:44,468 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 14:40:44,559 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:40:44,841 [INFO] HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/tatsu-lab/alpaca/tatsu-lab/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 14:40:44,936 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/revision/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 14:40:45,028 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-10-16 14:40:45,338 [INFO] HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=tatsu-lab/alpaca "HTTP/1.1 200 OK"
+2026-10-16 14:40:45,437 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:40:45,531 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-10-16 14:40:45,620 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-10-16 14:41:38,225 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:41:38,235 [INFO] Linear backend: torch-fallback
+2026-10-16 14:41:38,235 [INFO] device=cuda
+2026-10-16 14:41:38,236 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:41:38,236 [INFO] device=cuda
+2026-10-16 14:41:38,427 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:41:59,530 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:41:59,536 [INFO] Linear backend: torch-fallback
+2026-10-16 14:41:59,536 [INFO] device=cuda
+2026-10-16 14:41:59,536 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:41:59,537 [INFO] device=cuda
+2026-10-16 14:41:59,653 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 14:45:09,182 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 14:45:09,189 [INFO] Linear backend: torch-fallback
+2026-10-16 14:45:09,190 [INFO] device=cuda
+2026-10-16 14:45:09,190 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 14:45:09,190 [INFO] device=cuda
+2026-10-16 14:45:09,328 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 15:01:10,995 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 15:01:11,002 [INFO] Linear backend: torch-fallback
+2026-10-16 15:01:11,002 [INFO] device=cuda
+2026-10-16 15:01:11,003 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 15:01:11,003 [INFO] device=cuda
+2026-10-16 15:01:11,116 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 20:07:16,318 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 20:07:16,326 [INFO] Linear backend: torch-fallback
+2026-10-16 20:07:16,327 [INFO] device=cuda
+2026-10-16 20:07:16,327 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 20:07:16,328 [INFO] device=cuda
+2026-10-16 20:07:16,461 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 20:07:27,742 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 20:07:27,749 [INFO] Linear backend: torch-fallback
+2026-10-16 20:07:27,750 [INFO] device=cuda
+2026-10-16 20:07:27,750 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 20:07:27,750 [INFO] device=cuda
+2026-10-16 20:07:27,877 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 20:07:28,205 [INFO] JAX version 0.11.1 available.
+2026-10-16 20:07:28,649 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-10-16 20:07:28,667 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/tatsu-lab/alpaca/dce01c9b08f87459cf36a430d809084718273017/README.md?%2Fdatasets%2Ftatsu-lab%2Falpaca%2Fresolve%2Fmain%2FREADME.md=&etag=%2285e528790f89572cf48ee0383c6bc76241bc2cbd%22 "HTTP/1.1 200 OK"
+2026-10-16 20:07:28,764 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 20:07:29,054 [INFO] HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/tatsu-lab/alpaca/tatsu-lab/alpaca.py "HTTP/1.1 404 Not Found"
+2026-10-16 20:07:29,176 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/revision/dce01c9b08f87459cf36a430d809084718273017 "HTTP/1.1 200 OK"
+2026-10-16 20:07:29,267 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-10-16 20:07:29,652 [INFO] HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=tatsu-lab/alpaca "HTTP/1.1 200 OK"
+2026-10-16 20:07:29,747 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017/data?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-10-16 20:07:29,844 [INFO] HTTP Request: GET https://huggingface.co/api/datasets/tatsu-lab/alpaca/tree/dce01c9b08f87459cf36a430d809084718273017?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-10-16 20:07:29,938 [INFO] HTTP Request: HEAD https://huggingface.co/datasets/tatsu-lab/alpaca/resolve/dce01c9b08f87459cf36a430d809084718273017/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-10-16 20:23:37,262 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 20:23:37,285 [INFO] Linear backend: torch-fallback
+2026-10-16 20:23:37,289 [INFO] device=cuda
+2026-10-16 20:23:37,290 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 20:23:37,290 [INFO] device=cuda
+2026-10-16 20:23:37,460 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 20:38:51,684 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 20:38:51,691 [INFO] Linear backend: torch-fallback
+2026-10-16 20:38:51,691 [INFO] device=cuda
+2026-10-16 20:38:51,692 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 20:38:51,692 [INFO] device=cuda
+2026-10-16 20:38:51,831 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 21:48:09,853 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 21:48:09,860 [INFO] Linear backend: torch-fallback
+2026-10-16 21:48:09,860 [INFO] device=cuda
+2026-10-16 21:48:09,860 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 21:48:09,861 [INFO] device=cuda
+2026-10-16 21:48:10,008 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 21:48:35,794 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 21:48:35,801 [INFO] Linear backend: torch-fallback
+2026-10-16 21:48:35,801 [INFO] device=cuda
+2026-10-16 21:48:35,802 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 21:48:35,802 [INFO] device=cuda
+2026-10-16 21:48:35,932 [INFO] HybridTransformerLM: 4,953,216 parameters
+2026-10-16 21:48:47,311 [INFO] pynvml available — 2 GPU(s) visible for power sampling.
+2026-10-16 21:48:47,318 [INFO] Linear backend: torch-fallback
+2026-10-16 21:48:47,319 [INFO] device=cuda
+2026-10-16 21:48:47,319 [INFO] quantum substrate unavailable (ModuleNotFoundError: No module named 'step3_quantum_autoregrsive')
+2026-10-16 21:48:47,319 [INFO] device=cuda
+2026-10-16 21:48:47,432 [INFO] HybridTransformerLM: 4,953,216 parameters
