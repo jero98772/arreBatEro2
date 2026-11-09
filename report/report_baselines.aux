@@ -1,0 +1,31 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}The contenders}{1}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Architectures. Open-model values are read from each model's released \texttt  {config.json}. $^\dagger $GPT-3 values are from Table~2.1 of the paper, and GPT-3 alternates dense and locally banded sparse attention. Training-token counts are as reported by each model's authors.}}{1}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:arch}{{1}{1}{Architectures. Open-model values are read from each model's released \texttt {config.json}. $^\dagger $GPT-3 values are from Table~2.1 of the paper, and GPT-3 alternates dense and locally banded sparse attention. Training-token counts are as reported by each model's authors}{table.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Method}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}The full scoreboard}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Zero-shot results. All values are accuracy in percent, except LAMBADA perplexity and bpb (both lower is better). $^\dagger $GPT-3 rows are published values. Every other row was measured here on identical items. ``Train tok.'' is the pre-training token count reported by the authors (n/r = not reported).}}{2}{table.caption.2}\protected@file@percent }
+\newlabel{tab:main}{{2}{2}{Zero-shot results. All values are accuracy in percent, except LAMBADA perplexity and bpb (both lower is better). $^\dagger $GPT-3 rows are published values. Every other row was measured here on identical items. ``Train tok.'' is the pre-training token count reported by the authors (n/r = not reported)}{table.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Accuracy vs.\ parameter count. The black line is the published GPT-3 family. Grey points are the open models, measured here. Coloured markers are our models. Dashed lines mark chance.}}{2}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:size}{{1}{2}{Accuracy vs.\ parameter count. The black line is the published GPT-3 family. Grey points are the open models, measured here. Coloured markers are our models. Dashed lines mark chance}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Head-to-head: C against the 350M class and GPT-3}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces C against models of the same size, plus GPT-3 Small. $^\dagger $GPT-3 values are published.}}{3}{table.caption.4}\protected@file@percent }
+\newlabel{tab:h2h}{{3}{3}{C against models of the same size, plus GPT-3 Small. $^\dagger $GPT-3 values are published}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Language-modelling quality across domains}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Left: mean bpb over the four domains, ranked. Right: bpb per domain, with rows sorted by the mean. Bold rows are our models.}}{3}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:bpb}{{2}{3}{Left: mean bpb over the four domains, ranked. Right: bpb per domain, with rows sorted by the mean. Bold rows are our models}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Data and compute efficiency}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces HellaSwag vs.\ pre-training tokens (left) and vs.\ pre-training compute (right). Compute for open models is estimated as $6ND$; GPT-3 compute is from Table~D.1 of the paper. GPT-2 is omitted because its token count was not published.}}{4}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:eff}{{3}{4}{HellaSwag vs.\ pre-training tokens (left) and vs.\ pre-training compute (right). Compute for open models is estimated as $6ND$; GPT-3 compute is from Table~D.1 of the paper. GPT-2 is omitted because its token count was not published}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Speed vs.\ quality}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Prefill throughput vs.\ mean bpb on one RTX~2070~Super (fp16, batch 8, sequence length 512). Marker area is proportional to parameters. SmolLM2-360M (hollow marker) had to run in fp32 because its activations overflow fp16, so its speed is not comparable.}}{4}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:speed}{{4}{4}{Prefill throughput vs.\ mean bpb on one RTX~2070~Super (fp16, batch 8, sequence length 512). Marker area is proportional to parameters. SmolLM2-360M (hollow marker) had to run in fp32 because its activations overflow fp16, so its speed is not comparable}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Verdict per model}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Recommendation.}{5}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Caveats}{5}{section.5}\protected@file@percent }
+\gdef \@abspage@last{5}

@@ -1,0 +1,155 @@
+{
+ "model": "smollm2-135m",
+ "info": {
+  "repo": "HuggingFaceTB/SmolLM2-135M",
+  "max_len": 2048
+ },
+ "params": {
+  "embedding": 28311552,
+  "attention": 26559360,
+  "mlp": 79626240,
+  "norm": 17856,
+  "other": 0,
+  "total": 134515008
+ },
+ "ckpt_mb": 513.134033203125,
+ "speed": {
+  "prefill_tok_s_bs1": 12168.645669005784,
+  "prefill_tok_s_bs8": 24089.572927040008,
+  "decode_ms_per_token_nocache": 42.12405856021426
+ },
+ "peak_vram_gb": 1.3439116477966309,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 0.9126248386542353,
+    "nats_per_token": 2.832127773829049,
+    "tokens": 147551,
+    "bytes": 660598,
+    "bytes_per_token": 4.477082500288036
+   },
+   "2048": {
+    "bpb": 0.8697269562953861,
+    "nats_per_token": 2.699003757342602,
+    "tokens": 147551,
+    "bytes": 660598,
+    "bytes_per_token": 4.477082500288036
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 0.6535408078809337,
+    "nats_per_token": 1.5805679466399611,
+    "tokens": 163723,
+    "bytes": 571248,
+    "bytes_per_token": 3.4891127086603593
+   },
+   "2048": {
+    "bpb": 0.5232631675849116,
+    "nats_per_token": 1.2654955595254638,
+    "tokens": 163723,
+    "bytes": 571248,
+    "bytes_per_token": 3.4891127086603593
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 0.9842938633803345,
+    "nats_per_token": 2.305143661628843,
+    "tokens": 158089,
+    "bytes": 534133,
+    "bytes_per_token": 3.3786854240332977
+   },
+   "2048": {
+    "bpb": 0.8914906349539573,
+    "nats_per_token": 2.087805342510322,
+    "tokens": 158089,
+    "bytes": 534133,
+    "bytes_per_token": 3.3786854240332977
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.0297877366657306,
+    "nats_per_token": 2.770919214722962,
+    "tokens": 150089,
+    "bytes": 582639,
+    "bytes_per_token": 3.8819567056879585
+   },
+   "2048": {
+    "bpb": 0.9800669920532088,
+    "nats_per_token": 2.637132258720503,
+    "tokens": 150089,
+    "bytes": 582639,
+    "bytes_per_token": 3.8819567056879585
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.155997851071688,
+    "nats_per_token": 3.26240756188364,
+    "tokens": 165944,
+    "bytes": 675643,
+    "bytes_per_token": 4.071512076363111
+   },
+   "2048": {
+    "bpb": 1.1377960234704745,
+    "nats_per_token": 3.211039144588357,
+    "tokens": 165944,
+    "bytes": 675643,
+    "bytes_per_token": 4.071512076363111
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.343,
+   "acc_norm": 0.3885,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.643,
+   "acc_norm": 0.5895,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6789989118607181,
+   "acc_norm": 0.6860718171926007,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.438,
+   "ppl": 7.84428736150536,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " Paris. It is the largest city in France and the capital of the department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of department of",
+   "sample": " located in the south of France, in the department of Jura. It is situated at an altitude of 319 metres above sea level and a length of 124 kilometres. The capital is situated on a hill with a height of 220 metres above sea level. This city was founded by"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " lived two best friends named Sam and Alex. They loved exploring the world around them and learning new things. One day, they heard about a magical place called \"The Island of the Dead,\" where people could go to visit their dead loved ones.\n\nSam and Alex were curious and decided to go on a journey to",
+   "sample": " lived two curious little creatures named Darla and Suzy. They were known far and wide for their love of animals and learning new things. One day, they decided to go on an adventure to learn about how people and animals live together in villages and towns.\n\nDarla and Suzy met a kind"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": "\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\nprint(fibonacci(10))\n",
+   "sample": "\n    if n == 1 or n == 2:\n        return n\n    else:\n        return fibonacci(n-1) + fibonacci(n-2)\n\nprint(fibonacci(3))"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " 212 degrees Fahrenheit.\n\nThe boiling point of water is 212 degrees Fahrenheit.\n\nThe boiling point of water is 212 degrees Fahrenheit.\n\nThe boiling point of water is 212 degrees Fahrenheit.\n\nThe boiling point of water is 212",
+   "sample": " 212 degrees Fahrenheit. We know that this is the temperature of boiling water because it is a known number, 212 degrees Fahrenheit. If we know the temperature of a liquid, we can find the temperature of water.\n\nWe know the temperature of a liquid.\n\nSo we know that"
+  }
+ ]
+}

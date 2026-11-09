@@ -1,0 +1,189 @@
+{
+ "model": "A",
+ "info": {
+  "step": 60000,
+  "epoch": 10,
+  "logged_loss": 3.8081119060516357,
+  "max_len": 512
+ },
+ "params": {
+  "embedding": 16646144,
+  "attention": 12582912,
+  "mlp": 25196544,
+  "norm": 25600,
+  "other": 0,
+  "total": 54451200
+ },
+ "ckpt_mb": 623.2930860519409,
+ "weights": [
+  {
+   "attn_rms": 0.04181927605420173,
+   "mlp_rms": 0.04394076774196678
+  },
+  {
+   "attn_rms": 0.033403642253052,
+   "mlp_rms": 0.042764632688357715
+  },
+  {
+   "attn_rms": 0.03449589966247571,
+   "mlp_rms": 0.04491959830402733
+  },
+  {
+   "attn_rms": 0.03557765170042417,
+   "mlp_rms": 0.048142473358680396
+  },
+  {
+   "attn_rms": 0.041259706373002886,
+   "mlp_rms": 0.04804580782271159
+  },
+  {
+   "attn_rms": 0.04177900785011644,
+   "mlp_rms": 0.04812738178911098
+  },
+  {
+   "attn_rms": 0.04559001374836058,
+   "mlp_rms": 0.04921763627934228
+  },
+  {
+   "attn_rms": 0.04585433169858719,
+   "mlp_rms": 0.049603484725822364
+  },
+  {
+   "attn_rms": 0.04857274445431148,
+   "mlp_rms": 0.05139000339696092
+  },
+  {
+   "attn_rms": 0.04799308030810739,
+   "mlp_rms": 0.05245713920540964
+  },
+  {
+   "attn_rms": 0.04899230237614147,
+   "mlp_rms": 0.05305086087707595
+  },
+  {
+   "attn_rms": 0.04685398216719732,
+   "mlp_rms": 0.05015621991542853
+  }
+ ],
+ "speed": {
+  "prefill_tok_s_bs1": 72351.64508173525,
+  "prefill_tok_s_bs8": 142135.33226662077,
+  "decode_ms_per_token_nocache": 6.643722765147686
+ },
+ "peak_vram_gb": 0.5837936401367188,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 1.44971630580508,
+    "nats_per_token": 4.647053319768317,
+    "tokens": 142846,
+    "bytes": 660598,
+    "bytes_per_token": 4.624546714643742
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 2.4229272591707947,
+    "nats_per_token": 5.123687331467814,
+    "tokens": 187244,
+    "bytes": 571248,
+    "bytes_per_token": 3.0508213881352675
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.9207443968258944,
+    "nats_per_token": 4.62503686681429,
+    "tokens": 153755,
+    "bytes": 534133,
+    "bytes_per_token": 3.4739227992585606
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.3200197383788004,
+    "nats_per_token": 4.006915134932158,
+    "tokens": 133044,
+    "bytes": 582639,
+    "bytes_per_token": 4.379295571389916
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.266400909601674,
+    "nats_per_token": 3.9537410439183276,
+    "tokens": 150005,
+    "bytes": 675643,
+    "bytes_per_token": 4.504136528782374
+   }
+  }
+ },
+ "ablation": {
+  "base_bpb": 1.4151396987383822,
+  "delta_bpb": [
+   1.4386802493275646,
+   0.5556178060032526,
+   0.057461116943375634,
+   0.13827791448129223,
+   0.020845940476097446,
+   0.01870301194744539,
+   0.034247531060954906,
+   0.04772386541415963,
+   0.04324550387360282,
+   0.03767149595323693,
+   0.06592238535632333,
+   0.372152515367445
+  ]
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.292,
+   "acc_norm": 0.284,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.316,
+   "acc_norm": 0.2985,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.5326441784548422,
+   "acc_norm": 0.5228509249183896,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.111,
+   "ppl": 709.7605796566663,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " a french city in the province of saint-et-loire, in the province of saint-et-loire. it is located in the north of the city of saint-et-loire.\n\nhistory\nthe capital of france was founded in the 16th century by the french governor of france.",
+   "sample": " one of the most important and important administrative powers in the land of france, it is aetis, and the capital of the province of vald de galen. it is a single-family town, with a population of 30,000, of whom 5,943 are people.\n\ngeography\n\n"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " the film is a bit slow, but the film is a bit slow, and the acting is good. the film is a little slow, but the film is a little slow, and the acting is good. the film is a little slow, but it is a little slow, and the film is a little slow.",
+   "sample": " we are re-enacting into a bizarre and floss of relief from the north sea, following a few and several people being killed. the dvd cover art was a true example of a scary story. if you liked all of the inane humor and old english, then this is a must for all fans of the"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": " the supreme court on tuesday ordered the supreme court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the court to allow the",
+   "sample": "\nthe driver of the vehicle was attacked and killed by a truck on saturday in the northern parakee area of fairways.\nthe driver, who was killed in the attack, was taken to a hospital.\nthe crash was confirmed at 2 p.m. at the fairway street bridge.\nthe driver"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " about 2.5 degrees celsius.  the temperature of water is about 2.5 degrees celsius.  the temperature of water is about 2.5 degrees celsius.  the temperature of water is about 2.5 degrees celsius.  the temperature of water is about 2.5",
+   "sample": " 5.9 degrees celsius, north carolina, us. (ap) ap - a strong enough temperature in the water may be some of the worst in the world, but the united states may be just about to start a more limited us space exploration project, according to a federal judge in florida's bureau of land"
+  }
+ ]
+}

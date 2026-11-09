@@ -1,0 +1,120 @@
+{
+ "model": "gpt2-medium",
+ "info": {
+  "repo": "openai-community/gpt2-medium",
+  "max_len": 1024
+ },
+ "params": {
+  "embedding": 52511744,
+  "attention": 100761600,
+  "mlp": 201449472,
+  "norm": 100352,
+  "other": 0,
+  "total": 354823168
+ },
+ "ckpt_mb": 1353.54296875,
+ "speed": {
+  "prefill_tok_s_bs1": 13857.57625112765,
+  "prefill_tok_s_bs8": 20550.269576613377,
+  "decode_ms_per_token_nocache": 20.548456348478794
+ },
+ "peak_vram_gb": 2.7713985443115234,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 0.98584679188809,
+    "nats_per_token": 3.1354083119854144,
+    "tokens": 143972,
+    "bytes": 660598,
+    "bytes_per_token": 4.5883782957797346
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 1.1604050600370686,
+    "nats_per_token": 1.7411459967931688,
+    "tokens": 263891,
+    "bytes": 571248,
+    "bytes_per_token": 2.164711945462331
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.1981814512352762,
+    "nats_per_token": 2.900220018977067,
+    "tokens": 152956,
+    "bytes": 534133,
+    "bytes_per_token": 3.492069614791182
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.084605880524145,
+    "nats_per_token": 3.193402489630987,
+    "tokens": 137165,
+    "bytes": 582639,
+    "bytes_per_token": 4.247723544636022
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.1730059384710043,
+    "nats_per_token": 3.372162847237042,
+    "tokens": 162905,
+    "bytes": 675643,
+    "bytes_per_token": 4.147466314723305
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.3365,
+   "acc_norm": 0.3865,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.494,
+   "acc_norm": 0.423,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6751904243743199,
+   "acc_norm": 0.6730141458106638,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.441,
+   "ppl": 8.924891459840309,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " the capital of France.\n\nThe capital of France is the capital of France.\n\nThe capital of France is the capital of France.\n\nThe capital of France is the capital of France.\n\nThe capital of France is the capital of France.\n\nThe capital of France is the capital of France",
+   "sample": " divided into three regions: Paris, Lyon, and Strasbourg. It's been the site of countless wars and political conflicts.\n\nTwo of France's greatest heroes, Napoleon and Louis XVIII, are buried at the National Museum of the Republic of France, near the capital. In addition to Napoleon's grave, there"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " a young man named Tom was a good boy. He was a good boy who loved his family and his friends. He was a good boy who loved his country and his countrymen. He was a good boy who loved his country and his countrymen. He was a good boy who loved his country and his countrymen",
+   "sample": " the king was distracted by his beautiful wife, and was taking care of his three young sons, when a man saw him at the door, and called out, \"My Lord, do thou teach thy people to love their own gods and do not take the sacred gifts of their ancestors; and give me my gift of thy"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": " return n * fibonacci(n-1) def fibonacci(n): return n * fibonacci(n-1) def fibonacci(n): return n * fibonacci(n-1) def fibonacci(n): return n * fibonacci(n-1",
+   "sample": " if n > 1: return n * fibonacci(n-1) + fibonacci(n-2) return fibonacci(n-1) + fibonacci(n-2) def sqrt(n): return n*sqrt(n-1) - sqrt(n"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " about 1,000 degrees Fahrenheit. The temperature of the water is about 1,000 degrees Fahrenheit. The temperature of the water is about 1,000 degrees Fahrenheit.\n\nThe temperature of the water is about 1,000 degrees Fahrenheit. The temperature of the water is about 1,000 degrees Fahrenheit.\n\nThe",
+   "sample": " 600 degrees Celsius (1,539 degrees Fahrenheit), with water in a pan being at its boiling point at 400 degrees Celsius (1,180 degrees Fahrenheit). This is what happens when there is an explosion of hydrogen gas as a result of the sun's radiation from the sun. Water is about 10 percent hydrogen, about"
+  }
+ ]
+}

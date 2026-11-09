@@ -1,0 +1,156 @@
+{
+ "model": "smollm2-360m",
+ "info": {
+  "repo": "HuggingFaceTB/SmolLM2-360M",
+  "max_len": 2048,
+  "fp32": true
+ },
+ "params": {
+  "embedding": 47185920,
+  "attention": 78673920,
+  "mlp": 235929600,
+  "norm": 31680,
+  "other": 0,
+  "total": 361821120
+ },
+ "ckpt_mb": 1380.238037109375,
+ "speed": {
+  "prefill_tok_s_bs1": 6843.932446765114,
+  "prefill_tok_s_bs8": 7171.139668066371,
+  "decode_ms_per_token_nocache": 36.95565145814194
+ },
+ "peak_vram_gb": 2.439030647277832,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 0.8434266918856592,
+    "nats_per_token": 2.617386748754853,
+    "tokens": 147551,
+    "bytes": 660598,
+    "bytes_per_token": 4.477082500288036
+   },
+   "2048": {
+    "bpb": 0.7989956863163404,
+    "nats_per_token": 2.4795050260991593,
+    "tokens": 147551,
+    "bytes": 660598,
+    "bytes_per_token": 4.477082500288036
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 0.5552091666723279,
+    "nats_per_token": 1.3427559563852705,
+    "tokens": 163723,
+    "bytes": 571248,
+    "bytes_per_token": 3.4891127086603593
+   },
+   "2048": {
+    "bpb": 0.43266919022480815,
+    "nats_per_token": 1.0463968666094228,
+    "tokens": 163723,
+    "bytes": 571248,
+    "bytes_per_token": 3.4891127086603593
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 0.8440261423812603,
+    "nats_per_token": 1.9766470001930898,
+    "tokens": 158089,
+    "bytes": 534133,
+    "bytes_per_token": 3.3786854240332977
+   },
+   "2048": {
+    "bpb": 0.7544339216427656,
+    "nats_per_token": 1.7668286243501918,
+    "tokens": 158089,
+    "bytes": 534133,
+    "bytes_per_token": 3.3786854240332977
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 0.9429112660321066,
+    "nats_per_token": 2.537154844440736,
+    "tokens": 150089,
+    "bytes": 582639,
+    "bytes_per_token": 3.8819567056879585
+   },
+   "2048": {
+    "bpb": 0.8918591963855398,
+    "nats_per_token": 2.399785602510284,
+    "tokens": 150089,
+    "bytes": 582639,
+    "bytes_per_token": 3.8819567056879585
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.0434892626180914,
+    "nats_per_token": 2.944890648329183,
+    "tokens": 165944,
+    "bytes": 675643,
+    "bytes_per_token": 4.071512076363111
+   },
+   "2048": {
+    "bpb": 1.0247724792768838,
+    "nats_per_token": 2.8920689450276713,
+    "tokens": 165944,
+    "bytes": 675643,
+    "bytes_per_token": 4.071512076363111
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.374,
+   "acc_norm": 0.435,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.703,
+   "acc_norm": 0.65,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.719260065288357,
+   "acc_norm": 0.7274211099020674,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.5445,
+   "ppl": 4.95854877477608,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " the city of Paris. It is the largest city in France and the second largest in Europe. It is also the most populous city in Europe. Paris is the capital of France and the second largest city in Europe. It is the largest city in France and the second largest in Europe. It is the capital of France and",
+   "sample": " a city with a population of 1.3 million people. It\u2019s also one of the largest cities in France, and it\u2019s also one of the most beautiful.\n\nThe city of Paris has a rich and varied history, and it is home to many different kinds of people. The people of Paris"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " lived a kind and curious little girl named Lily. She loved exploring the world around her and learning new things every day. One day, she asked her mother, \u201cMommy, what is a book?\u201d Her mother smiled and replied, \u201cA book is a special object that holds stories and information.\u201d\n\nLily was",
+   "sample": " lived a little girl named Lily. She was always curious about the world around her and loved exploring new places. One day, she asked her mother, \u201cMommy, what is a hotel?\u201d Her mother smiled and replied, \u201cA hotel is like a big home for people who want to stay in the city for a"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": "\n    if n == 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n-1) + fibonacci(n-2)\n\nprint(fibonacci(10))\n",
+   "sample": "\n    if n == 1 or n == 2:\n        return n\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n\nif __name__ == \"__main__\":\n    n = int(input())\n    print(fibonacci(n))\n"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " 100 degrees Celsius.\n\nThe boiling point of water is 100 degrees Celsius.\n\nThe boiling point of water is 100 degrees Celsius.\n\nThe boiling point of water is 100 degrees Celsius.\n\nThe boiling point of water is 100",
+   "sample": " 100 degrees Celsius. Now, when the water reaches boiling, it turns into a gas, called steam. At the same time, the volume of water increases.\n\nTo find out how much, you need to divide the volume of water before it boils by the volume of water after. The result will"
+  }
+ ]
+}

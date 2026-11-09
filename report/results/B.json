@@ -1,0 +1,255 @@
+{
+ "model": "B",
+ "info": {
+  "step": 120,
+  "cfg": {
+   "vocab_size": 32768,
+   "n_layer": 12,
+   "n_head": 12,
+   "n_kv_head": 4,
+   "d_model": 768,
+   "d_ff": 2048,
+   "max_seq_len": 4096,
+   "rope_theta": 10000.0,
+   "rope_scale": 4.0,
+   "rope_orig_len": 1024,
+   "pos_emb": "rope",
+   "norm": "rmsnorm",
+   "prenorm": true,
+   "window": 0,
+   "local_every": 2,
+   "n_experts": 0,
+   "moe_top_k": 2,
+   "moe_shared": true,
+   "moe_aux_coef": 0.01,
+   "dropout": 0.0,
+   "grad_ckpt": true
+  },
+  "max_len": 4096
+ },
+ "params": {
+  "embedding": 25165824,
+  "attention": 18874368,
+  "mlp": 56623104,
+  "norm": 19200,
+  "other": 0,
+  "total": 100682496
+ },
+ "ckpt_mb": 384.1259956359863,
+ "weights": [
+  {
+   "attn_rms": 0.06769816462867624,
+   "mlp_rms": 0.05042551838459106
+  },
+  {
+   "attn_rms": 0.04986200412159909,
+   "mlp_rms": 0.056449668727912065
+  },
+  {
+   "attn_rms": 0.0521998436564434,
+   "mlp_rms": 0.05599436998236619
+  },
+  {
+   "attn_rms": 0.04994568431054413,
+   "mlp_rms": 0.05599783311731175
+  },
+  {
+   "attn_rms": 0.05131063838015844,
+   "mlp_rms": 0.056177260910405216
+  },
+  {
+   "attn_rms": 0.054218704891976215,
+   "mlp_rms": 0.056848838459155865
+  },
+  {
+   "attn_rms": 0.05297874214047762,
+   "mlp_rms": 0.05515182916715023
+  },
+  {
+   "attn_rms": 0.05387566369360846,
+   "mlp_rms": 0.05616096762072181
+  },
+  {
+   "attn_rms": 0.054208161930751037,
+   "mlp_rms": 0.05719710261888119
+  },
+  {
+   "attn_rms": 0.059462352493937845,
+   "mlp_rms": 0.05909283769490467
+  },
+  {
+   "attn_rms": 0.0584323142635611,
+   "mlp_rms": 0.05953587125294576
+  },
+  {
+   "attn_rms": 0.055983999393414016,
+   "mlp_rms": 0.057077368287699805
+  }
+ ],
+ "speed": {
+  "prefill_tok_s_bs1": 36549.55370910589,
+  "prefill_tok_s_bs8": 65963.5208354931,
+  "decode_ms_per_token_nocache": 14.962859451770782
+ },
+ "peak_vram_gb": 0.8595991134643555,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 1.1094422249201237,
+    "nats_per_token": 3.390289180978452,
+    "tokens": 149841,
+    "bytes": 660598,
+    "bytes_per_token": 4.408659846103537
+   },
+   "2048": {
+    "bpb": 1.0677520622060257,
+    "nats_per_token": 3.2628902913129583,
+    "tokens": 149841,
+    "bytes": 660598,
+    "bytes_per_token": 4.408659846103537
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 0.7552006654801939,
+    "nats_per_token": 1.994653339854824,
+    "tokens": 149915,
+    "bytes": 571248,
+    "bytes_per_token": 3.8104792715872327
+   },
+   "2048": {
+    "bpb": 0.6374228798198887,
+    "nats_per_token": 1.6835759477571144,
+    "tokens": 149915,
+    "bytes": 571248,
+    "bytes_per_token": 3.8104792715872327
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.2190553509838415,
+    "nats_per_token": 3.01126389572134,
+    "tokens": 149882,
+    "bytes": 534133,
+    "bytes_per_token": 3.563690102880933
+   },
+   "2048": {
+    "bpb": 1.132892463421313,
+    "nats_per_token": 2.7984276268359753,
+    "tokens": 149882,
+    "bytes": 534133,
+    "bytes_per_token": 3.563690102880933
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.1227114348947715,
+    "nats_per_token": 3.0273492719024064,
+    "tokens": 149772,
+    "bytes": 582639,
+    "bytes_per_token": 3.890173063055845
+   },
+   "2048": {
+    "bpb": 1.078782498129131,
+    "nats_per_token": 2.908896541664228,
+    "tokens": 149772,
+    "bytes": 582639,
+    "bytes_per_token": 3.890173063055845
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.4376397476869391,
+    "nats_per_token": 3.992288518315579,
+    "tokens": 168644,
+    "bytes": 675643,
+    "bytes_per_token": 4.006326937216859
+   },
+   "2048": {
+    "bpb": 1.4194803575790935,
+    "nats_per_token": 3.9418603601182216,
+    "tokens": 168644,
+    "bytes": 675643,
+    "bytes_per_token": 4.006326937216859
+   }
+  }
+ },
+ "ablation": {
+  "base_bpb": 1.091119799933794,
+  "delta_bpb": [
+   1.9458900195784816,
+   0.07882274153717428,
+   0.07702300212586044,
+   0.04444496253915475,
+   0.050959419896265956,
+   0.09699747365780831,
+   0.09283105250357071,
+   0.08881543868590125,
+   0.08140671965031698,
+   0.11116194747522568,
+   0.07492803156324723,
+   0.13580366979686231
+  ]
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.3185,
+   "acc_norm": 0.336,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.477,
+   "acc_norm": 0.408,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6082698585418934,
+   "acc_norm": 0.6158868335146899,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.245,
+   "ppl": 22.484092585475945,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " Paris. Paris is a city known for its rich history, culture, and art. The city is known for its rich history, culture, and art. Paris is a major center for art, fashion, and fashion, and it is also a major center for art, fashion, and fashion. Paris is a major center",
+   "sample": " Paris. The city is located in the northern part of the country, surrounded by the countryside. The climate is warm and wet with a temperature of about 48\u00b0C (104\u00b0F) and a mean temperature of 59\u00b0C (27\u00b0F). Paris is also a major cultural and economic center in"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " a woman named Luna, with a beautiful smile, stood before a man named Luna, who had been walking among the trees. Luna, with a smile, said, \"Luna, I am Luna, and I am the one who brings you to this place.\" Luna, with a smile,",
+   "sample": " one of the most beautiful trees stood as a beacon of the wind, adorned with the soft light of the world's sun. The sun danced on the sand, casting a golden glow upon the horizon, shimmering with a light that was as bright as the day. The sun, the moon,"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": " \n    if n <= 1: \n        return fibonacci(n-1) \n    else: \n        return fibonacci(n-2) \n\n# Driver Program \nn = 10000000000000000000000000",
+   "sample": " \n    fibonacci = 0\n    for i in range(n):\n        fibonacci = fibonacci + fibonacci-1\n    return fibonacci\n\nprint(fibonacci(9))  # Output: 3319\n# Output: 3229\n# Output: 31"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " 20\u00b0C, and then it reaches a temperature of 25\u00b0C. If the temperature of the water is 20\u00b0C, then the water boils at a temperature of 25\u00b0C. The total volume of water in the water is 20 + 25 = 45 liters",
+   "sample": " 212 degrees Fahrenheit, and it loses heat when it encounters the surrounding air. If the water is placed in a container, the temperature remains the same for the entire container. For a total of 30 minutes, the water boils at 300 degrees Fahrenheit and loses heat when it encounters the"
+  },
+  {
+   "mode": "chat",
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "greedy": "The sky is blue in two sentences. The first sentence is about a clear, clear sky, which is a clear, clear sky. The second sentence is about a clear, clear sky, which is a clear, clear sky. The third sentence is about a clear, clear sky, which is a clear, clear sky. The first sentence is about a clear, clear sky, which is a clear, clear sky. The second sentence is about a clear, clear sky, which"
+  },
+  {
+   "mode": "chat",
+   "prompt": "What is 12 * 7?",
+   "greedy": "10 * 7 = 70; 2 * 7 = 14; 70 + 14 = 84The answer is 84."
+  }
+ ]
+}

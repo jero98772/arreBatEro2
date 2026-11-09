@@ -1,0 +1,70 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Models under test}{1}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces The three checkpoints. Parameter counts are unique tensors (the tied input/output embedding is counted once).}}{1}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:models}{{1}{1}{The three checkpoints. Parameter counts are unique tensors (the tied input/output embedding is counted once)}{table.caption.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Provenance note.}{1}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Methodology}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Tokenizer-independent perplexity.}{2}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Zero-shot benchmarks.}{2}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Efficiency.}{2}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Language-modelling quality}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Bits per byte on identical raw text, using 512-token windows (bars). Black ticks show B and C with 2\,048-token windows. Lower is better.}}{2}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:bpb}{{1}{2}{Bits per byte on identical raw text, using 512-token windows (bars). Black ticks show B and C with 2\,048-token windows. Lower is better}{figure.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Bits per byte by domain and context length. The bottom block shows tokenizer compression (bytes per token, higher means fewer tokens for the same text).}}{3}{table.caption.7}\protected@file@percent }
+\newlabel{tab:bpb}{{2}{3}{Bits per byte by domain and context length. The bottom block shows tokenizer compression (bytes per token, higher means fewer tokens for the same text)}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Zero-shot benchmarks}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Zero-shot accuracy with 95\% Wilson intervals. Dashed lines mark chance.}}{3}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:bench}{{2}{3}{Zero-shot accuracy with 95\% Wilson intervals. Dashed lines mark chance}{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Training dynamics, data and compute}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Left: validation bpb during pre-training, read from the logs. B and C were evaluated on the pipeline's 4-domain validation set. A's curve is its own validation loss converted to bpb using its measured 4.48 bytes/token, so it is approximate and on a different text distribution. Right: HellaSwag accuracy of B and C at pre-training snapshots (10\%, 25\%, 50\%, 75\%, 100\%), with A's final checkpoint for reference.}}{4}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:curves}{{3}{4}{Left: validation bpb during pre-training, read from the logs. B and C were evaluated on the pipeline's 4-domain validation set. A's curve is its own validation loss converted to bpb using its measured 4.48 bytes/token, so it is approximate and on a different text distribution. Right: HellaSwag accuracy of B and C at pre-training snapshots (10\%, 25\%, 50\%, 75\%, 100\%), with A's final checkpoint for reference}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Left: parameters vs.\ pre-training tokens. A saw only 7{} tokens per parameter, cycling 10 times over 37\,M unique tokens. B was trained past the Chinchilla ratio, and C sits just below it. Centre: pre-training compute vs.\ uniform mean bpb, with a power-law fit through the three points. Right: measured training energy by stage.}}{4}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:scaling}{{4}{4}{Left: parameters vs.\ pre-training tokens. A saw only \tppA {} tokens per parameter, cycling 10 times over \uniqueA \,M unique tokens. B was trained past the Chinchilla ratio, and C sits just below it. Centre: pre-training compute vs.\ uniform mean bpb, with a power-law fit through the three points. Right: measured training energy by stage}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Inference efficiency}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Inside the networks}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}What post-training and mid-training bought (B and C)}{4}{subsection.3.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Left: quality vs.\ prefill throughput. Right: inference cost, normalised to the most expensive model, with absolute values printed above the bars.}}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:eff}{{5}{5}{Left: quality vs.\ prefill throughput. Right: inference cost, normalised to the most expensive model, with absolute values printed above the bars}{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Left: increase in bpb when one whole block is skipped (web + wiki text, symmetric log scale). Middle and right: RMS of each block's attention and MLP weights, plotted against relative depth.}}{5}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:layers}{{6}{5}{Left: increase in bpb when one whole block is skipped (web + wiki text, symmetric log scale). Middle and right: RMS of each block's attention and MLP weights, plotted against relative depth}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Qualitative samples}{5}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Comparison with GPT-3 and contemporary small models}{5}{section.4}\protected@file@percent }
+\newlabel{sec:baselines}{{4}{5}{Comparison with GPT-3 and contemporary small models}{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Capability across pipeline stages, from the pipeline's own evaluation logs. Only base and mid-training were evaluated for B. Hollow markers show the final checkpoints measured in this report, on the same items.}}{6}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:stages}{{7}{6}{Capability across pipeline stages, from the pipeline's own evaluation logs. Only base and mid-training were evaluated for B. Hollow markers show the final checkpoints measured in this report, on the same items}{figure.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Zero-shot comparison. $^\dagger $GPT-3 rows are published values (HellaSwag and PIQA on dev, ARC-Easy and LAMBADA on test, full sets). All other rows were measured here on the same items: the first 2\,000 of HellaSwag (dev), ARC-Easy (test) and LAMBADA-OpenAI, and all 1\,838 PIQA dev items. HellaSwag and PIQA are length-normalised accuracy. ``bpb'' is the mean over the four pipeline domains at 512 tokens. Training-token counts are as reported by each model's authors (n/r = not reported).}}{6}{table.caption.15}\protected@file@percent }
+\newlabel{tab:baselines}{{3}{6}{Zero-shot comparison. $^\dagger $GPT-3 rows are published values (HellaSwag and PIQA on dev, ARC-Easy and LAMBADA on test, full sets). All other rows were measured here on the same items: the first 2\,000 of HellaSwag (dev), ARC-Easy (test) and LAMBADA-OpenAI, and all 1\,838 PIQA dev items. HellaSwag and PIQA are length-normalised accuracy. ``bpb'' is the mean over the four pipeline domains at 512 tokens. Training-token counts are as reported by each model's authors (n/r = not reported)}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {paragraph}{C vs.\ GPT-3.}{6}{section*.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Needle-in-a-haystack retrieval, from the pipeline logs. Mid-training at 1k$\to $4k tokens with rescaled RoPE gave C near-perfect retrieval up to 4\,096 tokens. B never retrieved the needle.}}{7}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:needle}{{8}{7}{Needle-in-a-haystack retrieval, from the pipeline logs. Mid-training at 1k$\to $4k tokens with rescaled RoPE gave C near-perfect retrieval up to 4\,096 tokens. B never retrieved the needle}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Zero-shot accuracy vs.\ parameter count. The black line is the GPT-3 family (published). Grey points are open models measured with our harness. Coloured markers are A, B and C.}}{7}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:base_size}{{9}{7}{Zero-shot accuracy vs.\ parameter count. The black line is the GPT-3 family (published). Grey points are open models measured with our harness. Coloured markers are A, B and C}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {paragraph}{A, B, C vs.\ open models of the same size.}{7}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What this means.}{7}{section*.20}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Left: mean bits per byte on identical text for all ten measured models. Centre and right: HellaSwag against pre-training tokens and against pre-training compute. Compute for open models is estimated as $6ND$; GPT-3 compute is from the paper's Table~D.1.}}{8}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:base_eff}{{10}{8}{Left: mean bits per byte on identical text for all ten measured models. Centre and right: HellaSwag against pre-training tokens and against pre-training compute. Compute for open models is estimated as $6ND$; GPT-3 compute is from the paper's Table~D.1}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{Caveats specific to this comparison.}{8}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Overall comparison}{8}{section.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Scorecard. Each row is min--max normalised, darker = better; raw values are printed in the cells.}}{8}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:score}{{11}{8}{Scorecard. Each row is min--max normalised, darker = better; raw values are printed in the cells}{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {paragraph}{Ranking.}{8}{section*.24}\protected@file@percent }
+\gdef \LT@i {\LT@entry 
+    {1}{35.61723pt}\LT@entry 
+    {1}{35.61723pt}\LT@entry 
+    {1}{115.91008pt}\LT@entry 
+    {1}{285.9441pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Headline numbers (best value in bold).}}{9}{table.caption.23}\protected@file@percent }
+\newlabel{tab:score}{{4}{9}{Headline numbers (best value in bold)}{table.caption.23}{}}
+\@writefile{toc}{\contentsline {paragraph}{Threats to validity.}{9}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Greedy samples}{9}{appendix.A}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Greedy samples from each model ($\DOTSB \leftarrow \joinrel  \rhook $ marks a newline).}}{9}{table.5}\protected@file@percent }
+\newlabel{tab:samples}{{5}{9}{Greedy samples from each model ($\hookleftarrow $ marks a newline)}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Greedy samples from each model ($\DOTSB \leftarrow \joinrel  \rhook $ marks a newline).}}{10}{table.5}\protected@file@percent }
+\newlabel{tab:samples}{{5}{10}{Greedy samples from each model ($\hookleftarrow $ marks a newline)}{table.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Reproducing}{10}{appendix.B}\protected@file@percent }
+\gdef \@abspage@last{10}

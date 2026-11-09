@@ -1,0 +1,13 @@
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  43%|████▎     | 126/290 [00:00<00:00, 1242.11it/s]Loading weights:  91%|█████████ | 264/290 [00:00<00:00, 1321.31it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 1337.85it/s]
+21:10:17 smollm2-360m params {'embedding': 47185920, 'attention': 78673920, 'mlp': 235929600, 'norm': 31680, 'other': 0, 'total': 361821120} {'prefill_tok_s_bs1': 6843.932446765114, 'prefill_tok_s_bs8': 7171.139668066371}
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (11684 > 8192). Running this sequence through the model will result in indexing errors
+21:11:09 smollm2-360m bpb web {'512': 0.8434, '2048': 0.799}
+21:12:10 smollm2-360m bpb code {'512': 0.5552, '2048': 0.4327}
+21:13:09 smollm2-360m bpb math {'512': 0.844, '2048': 0.7544}
+21:14:03 smollm2-360m bpb wiki {'512': 0.9429, '2048': 0.8919}
+21:14:58 smollm2-360m bpb a_test {'512': 1.0435, '2048': 1.0248}
+21:16:19 smollm2-360m hellaswag {'acc': 0.374, 'acc_norm': 0.435, 'n': 2000, 'chance': 0.25}
+21:17:38 smollm2-360m arc_easy {'acc': 0.703, 'acc_norm': 0.65, 'n': 2000, 'chance': 0.25021666666666664}
+21:18:48 smollm2-360m piqa {'acc': 0.719260065288357, 'acc_norm': 0.7274211099020674, 'n': 1838, 'chance': 0.5}
+21:20:05 smollm2-360m lambada {'acc': 0.5445, 'ppl': 4.95854877477608, 'n': 2000}
+21:20:24 smollm2-360m samples done

@@ -1,0 +1,155 @@
+{
+ "model": "pythia-160m",
+ "info": {
+  "repo": "EleutherAI/pythia-160m",
+  "max_len": 2048
+ },
+ "params": {
+  "embedding": 77266944,
+  "attention": 28366848,
+  "mlp": 56669184,
+  "norm": 19968,
+  "other": 0,
+  "total": 162322944
+ },
+ "ckpt_mb": 619.212890625,
+ "speed": {
+  "prefill_tok_s_bs1": 40013.48353798282,
+  "prefill_tok_s_bs8": 80695.07823912417,
+  "decode_ms_per_token_nocache": 12.437207934757074
+ },
+ "peak_vram_gb": 1.5392122268676758,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 1.0577788547816096,
+    "nats_per_token": 3.369870352018001,
+    "tokens": 143729,
+    "bytes": 660598,
+    "bytes_per_token": 4.596135783314432
+   },
+   "2048": {
+    "bpb": 1.011968675164837,
+    "nats_per_token": 3.2239283477764307,
+    "tokens": 143729,
+    "bytes": 660598,
+    "bytes_per_token": 4.596135783314432
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 0.7789145438781115,
+    "nats_per_token": 1.7770323327781186,
+    "tokens": 173558,
+    "bytes": 571248,
+    "bytes_per_token": 3.291395383675774
+   },
+   "2048": {
+    "bpb": 0.6362535472377592,
+    "nats_per_token": 1.4515624777744507,
+    "tokens": 173558,
+    "bytes": 571248,
+    "bytes_per_token": 3.291395383675774
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.2041986715332227,
+    "nats_per_token": 3.04837388251491,
+    "tokens": 146253,
+    "bytes": 534133,
+    "bytes_per_token": 3.6521165377804214
+   },
+   "2048": {
+    "bpb": 1.1115940514165303,
+    "nats_per_token": 2.8139495204580123,
+    "tokens": 146253,
+    "bytes": 534133,
+    "bytes_per_token": 3.6521165377804214
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.0557520464339538,
+    "nats_per_token": 3.093069123292321,
+    "tokens": 137847,
+    "bytes": 582639,
+    "bytes_per_token": 4.226707871770876
+   },
+   "2048": {
+    "bpb": 1.008849332282517,
+    "nats_per_token": 2.955656804338799,
+    "tokens": 137847,
+    "bytes": 582639,
+    "bytes_per_token": 4.226707871770876
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.2798190272243166,
+    "nats_per_token": 3.7602254679015825,
+    "tokens": 159396,
+    "bytes": 675643,
+    "bytes_per_token": 4.238770107154508
+   },
+   "2048": {
+    "bpb": 1.2671443264268387,
+    "nats_per_token": 3.7229860366047416,
+    "tokens": 159396,
+    "bytes": 675643,
+    "bytes_per_token": 4.238770107154508
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.3235,
+   "acc_norm": 0.3365,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.443,
+   "acc_norm": 0.3845,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6142546245919478,
+   "acc_norm": 0.6180631120783461,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.3475,
+   "ppl": 12.824750811514868,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " the capital of the world, and the most important city in the world.\n\nThe city of Paris is the capital of the world, and the most important city in the world.\n\nThe city of Paris is the capital of the world, and the most important city in the world.\n\nThe city of",
+   "sample": " under siege.\n\nFrance is under a total siege of more than 100,000 troops.\n\nIn an interview with AFP, Chief of the Military Intelligence (MMI) General B\u00e9atrice Lefebvre was asked by journalists if he had seen any reports about the city's troops and how the French army"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " a man, a woman, and a child, was found dead.\n\nThe man, a man, and a child, were found dead in a small village by the sea.\n\nThe man, a man, and a child, were found dead in a small village by the sea.\n\nThe man",
+   "sample": " there was a woman who had some problem. She was sitting at a small table and asked if she was well enough to sit down. He told her not to ask, but to sit down. He then told her to come back. She went on. She took a little handful of bread and went back to the table"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": "\n\nif n < 0:\n    return n\nelse:\n    return fibonacci(n)\n",
+   "sample": "\n\ndef fibonacci(n, n2):\n    if n < n2:\n        return n2\n    else:\n        return fibonacci(n)\n\nprint(fibonacci(2, 3))\n"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " about 1,000 degrees Fahrenheit, and the water is heated to about 1,000 degrees Fahrenheit.\n\nThe temperature of the water is about 1,000 degrees Fahrenheit, and the temperature of the water is about 1,000 degrees Fahrenheit.\n\nThe water is heated to",
+   "sample": " 35\u00b0 C. Water temperatures typically range from 35\u00b0 C. to 40\u00b0 C. The air is typically at a temperature of about 25\u00b0 C. To prevent the discharge of water into the atmosphere, the temperature of the air can be controlled using water swabbing. The swabbing of the air in a water body"
+  }
+ ]
+}

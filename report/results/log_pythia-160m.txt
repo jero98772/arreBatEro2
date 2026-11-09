@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 2109.16it/s]
+20:56:29 pythia-160m params {'embedding': 77266944, 'attention': 28366848, 'mlp': 56669184, 'norm': 19968, 'other': 0, 'total': 162322944} {'prefill_tok_s_bs1': 40013.48353798282, 'prefill_tok_s_bs8': 80695.07823912417}
+20:56:35 pythia-160m bpb web {'512': 1.0578, '2048': 1.012}
+20:56:42 pythia-160m bpb code {'512': 0.7789, '2048': 0.6363}
+20:56:48 pythia-160m bpb math {'512': 1.2042, '2048': 1.1116}
+20:56:54 pythia-160m bpb wiki {'512': 1.0558, '2048': 1.0088}
+20:57:03 pythia-160m bpb a_test {'512': 1.2798, '2048': 1.2671}
+20:57:32 pythia-160m hellaswag {'acc': 0.3235, 'acc_norm': 0.3365, 'n': 2000, 'chance': 0.25}
+20:58:00 pythia-160m arc_easy {'acc': 0.443, 'acc_norm': 0.3845, 'n': 2000, 'chance': 0.25021666666666664}
+20:58:24 pythia-160m piqa {'acc': 0.6142546245919478, 'acc_norm': 0.6180631120783461, 'n': 1838, 'chance': 0.5}
+20:58:50 pythia-160m lambada {'acc': 0.3475, 'ppl': 12.824750811514868, 'n': 2000}
+20:58:56 pythia-160m samples done

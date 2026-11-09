@@ -1,0 +1,155 @@
+{
+ "model": "pythia-410m",
+ "info": {
+  "repo": "EleutherAI/pythia-410m",
+  "max_len": 2048
+ },
+ "params": {
+  "embedding": 103022592,
+  "attention": 100810752,
+  "mlp": 201449472,
+  "norm": 51200,
+  "other": 0,
+  "total": 405334016
+ },
+ "ckpt_mb": 1546.2265625,
+ "speed": {
+  "prefill_tok_s_bs1": 18777.914800519753,
+  "prefill_tok_s_bs8": 31068.37913693628,
+  "decode_ms_per_token_nocache": 22.03118707984686
+ },
+ "peak_vram_gb": 3.335991859436035,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 0.932410647201076,
+    "nats_per_token": 2.970472496878892,
+    "tokens": 143729,
+    "bytes": 660598,
+    "bytes_per_token": 4.596135783314432
+   },
+   "2048": {
+    "bpb": 0.8838473112380255,
+    "nats_per_token": 2.8157594911147887,
+    "tokens": 143729,
+    "bytes": 660598,
+    "bytes_per_token": 4.596135783314432
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 0.6413593767701671,
+    "nats_per_token": 1.4632110266891598,
+    "tokens": 173558,
+    "bytes": 571248,
+    "bytes_per_token": 3.291395383675774
+   },
+   "2048": {
+    "bpb": 0.508290641993994,
+    "nats_per_token": 1.1596251634675079,
+    "tokens": 173558,
+    "bytes": 571248,
+    "bytes_per_token": 3.291395383675774
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.052557424810018,
+    "nats_per_token": 2.6645009992850572,
+    "tokens": 146253,
+    "bytes": 534133,
+    "bytes_per_token": 3.6521165377804214
+   },
+   "2048": {
+    "bpb": 0.9587371772583732,
+    "nats_per_token": 2.4269993319535574,
+    "tokens": 146253,
+    "bytes": 534133,
+    "bytes_per_token": 3.6521165377804214
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 0.9118193784717019,
+    "nats_per_token": 2.6713851752375937,
+    "tokens": 137847,
+    "bytes": 582639,
+    "bytes_per_token": 4.226707871770876
+   },
+   "2048": {
+    "bpb": 0.8677159349769974,
+    "nats_per_token": 2.542173965308982,
+    "tokens": 137847,
+    "bytes": 582639,
+    "bytes_per_token": 4.226707871770876
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.0984799838064878,
+    "nats_per_token": 3.2274347569652955,
+    "tokens": 159396,
+    "bytes": 675643,
+    "bytes_per_token": 4.238770107154508
+   },
+   "2048": {
+    "bpb": 1.0852795593843942,
+    "nats_per_token": 3.188650701529959,
+    "tokens": 159396,
+    "bytes": 675643,
+    "bytes_per_token": 4.238770107154508
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.343,
+   "acc_norm": 0.3825,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.528,
+   "acc_norm": 0.4515,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6741022850924918,
+   "acc_norm": 0.6817192600652884,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.512,
+   "ppl": 5.482015051150682,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " the capital of the country. The capital of the United States is the capital of the United States. The capital of the United Kingdom is the capital of the United Kingdom. The capital of the United States is the capital of the United States. The capital of the United Kingdom is the capital of the United Kingdom. The capital",
+   "sample": " Paris, but the city has two districts, the one you're in right now is in the \"neighbourhood of the Seine\"\n\nSt-Germain-des-Pr\u00e9s is the name of a neighbourhood that lies in the heart of Paris, so you should be aware of it when you come"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " a young man named John was a very good and honest man. He was a good and honest man, and he was a very good and honest man. He was a good and honest man, and he was a very good and honest man. He was a good and honest man, and he was a very good and",
+   "sample": " the village elders were the only ones who could vote. At the first meeting, a vote was taken and the villagers decided whether or not to join the church.\n\nThey voted \u201cno\u201d and were forced to pay the village elders their share of the work of the church. But they wanted a church to be in"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": "\n    return (n**2) + (n**3) + (n**4) + (n**5) + (n**6) + (n**7) + (n**8) + (n**9) + (n**10) + (n**11) + (",
+   "sample": "\n    \"\"\"\n    Fibonacci algorithm\n\n    This function returns the fibonacci number n.\n    \"\"\"\n\n    def fib(n):\n        if n < 0:\n            return 0\n        else:\n            return n * fib(n - 1) + fib(n - 2"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " about 100\u00b0 C. and at a pressure of about 1.5 MPa. The water boils at a temperature of about 100\u00b0 C. and at a pressure of about 1.5 MPa. The water boils at a temperature of about 100\u00b0 C. and at a pressure of about 1.5",
+   "sample": " only about 1.5\u00b0C. Water boils at a temperature that is about twice that of air. The boiling point of water is about 96\u00b0C and the boiling point of air is about 3.6\u00b0C. The boiling point of water is therefore about one-and-a-half times the boiling"
+  }
+ ]
+}

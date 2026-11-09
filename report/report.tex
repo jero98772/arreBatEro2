@@ -1,0 +1,351 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{placeins}
+\usepackage{caption}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=1.3em}
+
+% model colours = figure palette (categorical slots 1-3)
+\definecolor{mA}{HTML}{2A78D6}
+\definecolor{mB}{HTML}{EB6834}
+\definecolor{mC}{HTML}{1BAF7A}
+\newcommand{\A}{\textcolor{mA}{\textbf{A}}}
+\newcommand{\B}{\textcolor{mB}{\textbf{B}}}
+\newcommand{\C}{\textcolor{mC}{\textbf{C}}}
+\newcommand{\bpbunit}{\,bpb}
+
+\input{results/macros.tex}
+\input{results/macros_baselines.tex}
+
+\title{\textbf{Three Small Language Models, One Yardstick}\\[2pt]
+\large A uniform evaluation of checkpoints \A{}, \B{} and \C{}, with GPT-3 and open baselines}
+\author{Model comparison report}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent We compare three decoder-only Transformer language models trained from scratch on a workstation with two RTX~2070~Super GPUs:
+\A{}, a \paramsA\,M-parameter GPT-2-style model pre-trained on a small mixed-domain corpus;
+\B{}, a \paramsB\,M-parameter Llama-style model taken through pre-training, mid-training and a full post-training pipeline (SFT, DPO, GRPO, self-distillation); and
+\C{}, a \paramsC\,M-parameter model of the same family, put through the same pipeline at larger scale.
+Because the models use three different tokenizers, we score language-modelling quality in \emph{bits per byte} of identical raw text, and we run every model through the same zero-shot benchmark harness.
+\C{} is the best model on every quality metric except A's own lower-cased test set: mean \meanbpbC\bpbunit{} against \meanbpbB{} for \B{} and \meanbpbA{} for \A{}, and HellaSwag \hellaswagC\% against \hellaswagB\% and \hellaswagA\%.
+\B{} gets about 92\% of \C{}'s bpb gain over \A{} with less than a third of its parameters and about a fifth of its pre-training compute.
+Compared with the original GPT-3 family, \C{} matches or beats GPT-3 Small on three of four zero-shot tasks with about 1/18 of its training compute. Against open models of similar size (GPT-2, OPT, Pythia, SmolLM2) measured with the same harness, B and C are competitive per FLOP but trail the models trained on far more tokens. \A{} is the cheapest model by one to two orders of magnitude, but it is barely above chance on reasoning benchmarks, cannot model case or code well, and is limited to a 512-token context.
+\end{abstract}
+
+\section{Models under test}
+
+\begin{table}[h]
+\centering\small
+\begin{tabularx}{\linewidth}{l>{\raggedright}X>{\raggedright}X>{\raggedright\arraybackslash}X}
+\toprule
+ & \A{} & \B{} & \C{} \\
+\midrule
+Checkpoint & \texttt{a.pt}, step 60\,000 (epoch 10) & \texttt{b.pt}, final post-trained model & \texttt{c.pt}, final post-trained model \\
+Lineage & \texttt{QPT-LLM-prototype-no-lib} & \texttt{llm\_pipeline/work} (``100M'' run) & \texttt{llm\_pipeline/work\_350m} \\
+Layers / $d_\text{model}$ / heads & 12 / 512 / 8 (MHA) & 12 / 768 / 12 (4 KV heads, GQA) & 28 / 1024 / 16 (4 KV heads, GQA) \\
+Block & pre-norm LayerNorm, GELU MLP ($4d$), biases & pre-norm RMSNorm, SwiGLU ($d_\text{ff}{=}2048$) & pre-norm RMSNorm, SwiGLU ($d_\text{ff}{=}2752$) \\
+Positions & learned absolute, 512 max & RoPE + YaRN-style scaling, 4096 & RoPE + YaRN-style scaling, 4096 \\
+Unique parameters & \paramsA\,M (tied emb.) & \paramsB\,M (tied emb.) & \paramsC\,M (tied emb.) \\
+Tokenizer & BPE 32k, \emph{lower-cases and strips accents} & byte-level BPE 32\,768 & byte-level BPE 32\,768 (separate training) \\
+Pre-training data & 9 HF corpora (news, reviews, Wikipedia, Q\&A); \uniqueA\,M unique tokens, 10 epochs & web 74\%, code 12\%, math 8\%, wiki 6\% & same mix, about 2.3$\times$ more text \\
+Tokens seen (pre-train) & \tokensA\,B & \tokensB\,B & \tokensC\,B \\
+Tokens per parameter & \tppA & \tppB & \tppC \\
+Post-training & none (base LM) & mid-train $\to$ SFT $\to$ RM $\to$ DPO $\to$ GRPO $\to$ distill & same \\
+\bottomrule
+\end{tabularx}
+\caption{The three checkpoints. Parameter counts are unique tensors (the tied input/output embedding is counted once).}
+\label{tab:models}
+\end{table}
+
+\paragraph{Provenance note.}
+The \texttt{tokens\_c/} directory shipped next to \texttt{c.pt} holds the tokenizer of the pipeline's \emph{smoke-test} run, with a vocabulary of 4\,096 (its MD5 hash matches \texttt{work\_smoke}). It cannot encode text for \C{}, whose embedding table has 32\,768 rows. All results for \C{} therefore use the tokenizer of the run that produced it, \texttt{work\_350m/3\_tokenization/tokenizer.json}. \texttt{a.pt} matches A's training checkpoint \texttt{ckpt\_step\_0060000.pt} byte for byte.
+
+\section{Methodology}
+
+\paragraph{Tokenizer-independent perplexity.}
+Per-token loss cannot be compared across different vocabularies, so we report bits per byte:
+\[
+\text{bpb}=\frac{\sum_t -\ln p(x_t\mid x_{<t})}{\ln 2\cdot N_\text{bytes}},
+\]
+where $N_\text{bytes}$ is the UTF-8 length of the \emph{original} text.
+Each model re-tokenizes the same documents with its own tokenizer. Every document is scored on its own, starting from BOS, in non-overlapping windows of 512 tokens (A's maximum context). B and C are also scored with 2\,048-token windows.
+The text comes from five held-out sets of about 0.55--0.67\,MB each:
+the web, code, math and Wikipedia validation shards of the B pipeline, and A's own test split (``A-test'', which was lower-cased by A's preprocessing).
+
+\emph{Check:} A scores 3.954 nats/token on A-test with this harness, against 3.957 in its training log, so the reimplementation of A is faithful.
+We found that A was trained on single documents padded to 512 tokens (only \nonpadA\% of its training tokens are real text). Scoring it on packed multi-document windows would therefore be unfair to it, and that is why every document is scored on its own.
+
+\paragraph{Zero-shot benchmarks.}
+HellaSwag, ARC-Easy and PIQA are scored by the log-likelihood of each answer, using the pipeline's own harness logic (\texttt{eval/benchmarks.py}). We report length-normalised accuracy (acc\_norm) for HellaSwag and PIQA and raw accuracy for ARC-Easy. LAMBADA requires an exact greedy prediction of the final word. Each benchmark uses the first \benchN{} items, or 1\,838 for PIQA, and the error bars are 95\% Wilson intervals.
+All three models are run on the same items with the same prompts. A's inputs are left-truncated to 512 tokens.
+
+\paragraph{Efficiency.}
+We measure fp16 forward throughput at sequence length 512 (batch sizes 1 and 8), greedy decode latency without a KV cache (identical for all models), peak allocated VRAM, and checkpoint size, all on one RTX~2070~Super.
+Training compute, energy and wall-clock time come from the training logs. For A, compute is estimated as $6ND$ over non-pad tokens.
+
+\section{Results}
+
+\subsection{Language-modelling quality}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/bpb_domains.pdf}
+\caption{Bits per byte on identical raw text, using 512-token windows (bars). Black ticks show B and C with 2\,048-token windows. Lower is better.}
+\label{fig:bpb}
+\end{figure}
+
+\begin{table}[h]
+\centering\small
+\input{results/table_bpb.tex}
+\caption{Bits per byte by domain and context length. The bottom block shows tokenizer compression (bytes per token, higher means fewer tokens for the same text).}
+\label{tab:bpb}
+\end{table}
+
+\noindent Figure~\ref{fig:bpb} and Table~\ref{tab:bpb} show four patterns:
+\begin{itemize}
+  \item \textbf{Size and data order the models consistently.} \C{} $<$ \B{} $<$ \A{} on all four pipeline domains. The mean over the four pipeline domains is \meanbpbC{}, \meanbpbB{} and \meanbpbA\bpbunit{}.
+  \item \textbf{A's biggest gap is code} (\bpbAcode{} vs.\ \bpbCcode\bpbunit). Its corpus has essentially no source code, and its normaliser lower-cases identifiers and strips accents, so its tokenizer fragments code into short pieces (about 3 bytes/token, against 3.8 for B and C).
+  \item \textbf{A-test is A's home ground, and A wins there.} The text is already lower-cased and comes from A's own distribution. \A{} scores \bpbAatest{}, ahead of \C{} (\bpbCatest) and \B{} (\bpbBatest). On in-distribution text, a small model trained on that data beats much larger general-purpose models.
+  \item \textbf{Long context helps B and C.} Scoring with 2\,048-token windows lowers mean bpb to \meanbpblongB{} (B) and \meanbpblongC{} (C). The largest gains are on code and math, where long-range structure matters. A cannot use context beyond 512 tokens at all.
+\end{itemize}
+
+\subsection{Zero-shot benchmarks}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/benchmarks.pdf}
+\caption{Zero-shot accuracy with 95\% Wilson intervals. Dashed lines mark chance.}
+\label{fig:bench}
+\end{figure}
+
+On the benchmarks (Figure~\ref{fig:bench}), \A{} sits a few points above chance on HellaSwag (\hellaswagA\%) and ARC-Easy (\arceasyA\%), and it is barely above chance on PIQA (\piqaA\%, with the interval's lower edge at about 50\%).
+\C{} is clearly ahead on ARC-Easy (\arceasyC\%) and PIQA (\piqaC\%), and leads strongly on LAMBADA (\lambadaC\% against \lambadaB\% and \lambadaA\%). LAMBADA tests long-range narrative tracking, which is exactly where depth and data help.
+On HellaSwag, \B{} (\hellaswagB\%) and \C{} (\hellaswagC\%) are close. At this scale HellaSwag rises slowly, as Figure~\ref{fig:curves} (right) shows.
+LAMBADA perplexity separates the models most sharply: \lambadapplA{} for A, \lambadapplB{} for B and \lambadapplC{} for C.
+
+\subsection{Training dynamics, data and compute}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/curves.pdf}
+\caption{Left: validation bpb during pre-training, read from the logs. B and C were evaluated on the pipeline's 4-domain validation set. A's curve is its own validation loss converted to bpb using its measured 4.48 bytes/token, so it is approximate and on a different text distribution. Right: HellaSwag accuracy of B and C at pre-training snapshots (10\%, 25\%, 50\%, 75\%, 100\%), with A's final checkpoint for reference.}
+\label{fig:curves}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.36\linewidth}\centering
+\includegraphics[width=\linewidth]{figs/data_scale.pdf}
+\end{minipage}\hfill
+\begin{minipage}{0.62\linewidth}\centering
+\includegraphics[width=\linewidth]{figs/scaling_energy.pdf}
+\end{minipage}
+\caption{Left: parameters vs.\ pre-training tokens. A saw only \tppA{} tokens per parameter, cycling 10 times over \uniqueA\,M unique tokens. B was trained past the Chinchilla ratio, and C sits just below it. Centre: pre-training compute vs.\ uniform mean bpb, with a power-law fit through the three points. Right: measured training energy by stage.}
+\label{fig:scaling}
+\end{figure}
+
+Figure~\ref{fig:scaling} gives the economics:
+\begin{itemize}
+  \item \textbf{Compute.} Pre-training cost about $\flopsA$ FLOPs for A, $\flopsB$ for B and $\flopsC$ for C.
+  \item \textbf{Scaling.} Mean bpb falls roughly as a power law in compute. A, though, is off the B--C trend: its architecture is older, its corpus is narrow and lower-cased, and it repeated the same 37\,M tokens ten times.
+  \item \textbf{Energy.} Measured end-to-end training energy, from pre-training through post-training, is \kwhtotA{} kWh for A, \kwhtotB{} kWh for B and \kwhtotC{} kWh for C. C's mid-training and full-length SFT cost almost as much energy as its pre-training.
+  \item \textbf{Caveat on A's energy.} A's figure is the prototype's own GPU-side meter over \hoursA{} h. It is not directly comparable with the pipeline's whole-system estimate, and likely understates A's true energy.
+\end{itemize}
+
+\subsection{Inference efficiency}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/efficiency.pdf}
+\caption{Left: quality vs.\ prefill throughput. Right: inference cost, normalised to the most expensive model, with absolute values printed above the bars.}
+\label{fig:eff}
+\end{figure}
+
+A processes about \tputA{}k tokens/s at batch 8, against \tputB{}k for B and \tputC{}k for C. Its greedy decode takes \decodeA{} ms/token, against \decodeB{} and \decodeC{} ms, and it fits in \vramA{} GB, against \vramB{} and \vramC{} GB (Figure~\ref{fig:eff}).
+\B{} sits at the knee of the curve. It is about 2.4$\times$ faster than \C{} and costs only about \(\meanbpbB-\meanbpbC\) bpb.
+
+\subsection{Inside the networks}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/layers.pdf}
+\caption{Left: increase in bpb when one whole block is skipped (web + wiki text, symmetric log scale). Middle and right: RMS of each block's attention and MLP weights, plotted against relative depth.}
+\label{fig:layers}
+\end{figure}
+
+All three models depend most on their first block: skipping it costs 1.4--2.2 bpb (Figure~\ref{fig:layers}).
+\begin{itemize}
+  \item \textbf{A and C} also depend heavily on block 1 and on the last block.
+  \item \textbf{B} spreads its computation more evenly, at about 0.05--0.14 bpb per block.
+  \item \textbf{C's middle layers are redundant.} Many of them cost less than 0.03 bpb when removed, and a few slightly \emph{improve} bpb, making C a natural candidate for depth pruning or early exit.
+  \item \textbf{Weight scales differ by family.} The Llama-style models keep their weights roughly flat across depth, apart from a larger first block, consistent with weight decay 0.1 and scaled residual initialisation. A's weights grow steadily with depth.
+\end{itemize}
+
+\subsection{What post-training and mid-training bought (B and C)}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/stages.pdf}
+\caption{Capability across pipeline stages, from the pipeline's own evaluation logs. Only base and mid-training were evaluated for B. Hollow markers show the final checkpoints measured in this report, on the same items.}
+\label{fig:stages}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\linewidth]{figs/needle.pdf}
+\caption{Needle-in-a-haystack retrieval, from the pipeline logs. Mid-training at 1k$\to$4k tokens with rescaled RoPE gave C near-perfect retrieval up to 4\,096 tokens. B never retrieved the needle.}
+\label{fig:needle}
+\end{figure}
+
+The pipeline logs (Figures~\ref{fig:stages}--\ref{fig:needle}) show that post-training transformed what \C{} can do:
+\begin{itemize}
+  \item \textbf{Math.} Synthetic arithmetic accuracy went from about 1\% to 99.6\%, and GSM8K from 2\% to 17.6\%.
+  \item \textbf{Code.} HumanEval pass@1 went from 0.6\% to 9.1\%.
+  \item \textbf{Long context.} Needle retrieval went from failing beyond 1k tokens to about 90--100\% up to 4k.
+  \item \textbf{Conversation.} Multi-turn fact recall reached about 70\% after distillation.
+\end{itemize}
+The cost was a small rise in raw-text bpb: the pipeline's own log reports 0.82 at the base checkpoint and 0.92 after SFT, a known effect of instruction tuning.
+\B{}'s pipeline did not evaluate its post-trained stages, so the hollow markers are its only post-training measurement. A has no instruction or chat ability.
+
+\subsection{Qualitative samples}
+
+Table~\ref{tab:samples} lists greedy continuations.
+\begin{itemize}
+  \item \textbf{A} produces fluent, lower-case prose but quickly falls into repetition loops.
+  \item \textbf{B and C} follow the chat template.
+  \item \textbf{B and C} both solve the arithmetic chat prompt ($12\times7=84$), but only \textbf{C} gives a coherent explanation of why the sky is blue. B loops on the wording of the question.
+  \item \textbf{Base-mode facts} are shaky for all three: only B and C complete ``The capital of France is'' with Paris, and only C gets close on the boiling point of water.
+\end{itemize}
+
+\section{Comparison with GPT-3 and contemporary small models}
+\label{sec:baselines}
+
+To place A, B and C in context, we compare them with two groups:
+\begin{itemize}
+  \item \textbf{GPT-3} (Brown et al., 2020), the original 2020 model family. Its weights were never released, so we take the zero-shot numbers \emph{published} in the paper's Table~H.1. All GPT-3 sizes were trained on 300\,B tokens with a 2\,048-token context. We checked these numbers against the paper; they were not re-measured.
+  \item \textbf{Open models of similar size}, run through \emph{exactly the same harness} as A, B and C: the same raw text for bpb, the same benchmark items, prompts and scoring. These are GPT-2 124M and 355M (2019), OPT-125M (2022, 180\,B tokens), Pythia-160M and 410M (2023, 300\,B tokens on the Pile), and SmolLM2-135M and 360M (2024, 2\,T and 4\,T tokens).
+\end{itemize}
+
+\begin{table}[h]
+\centering\scriptsize
+\setlength{\tabcolsep}{4pt}
+\input{results/table_baselines.tex}
+\caption{Zero-shot comparison. $^\dagger$GPT-3 rows are published values (HellaSwag and PIQA on dev, ARC-Easy and LAMBADA on test, full sets). All other rows were measured here on the same items: the first 2\,000 of HellaSwag (dev), ARC-Easy (test) and LAMBADA-OpenAI, and all 1\,838 PIQA dev items. HellaSwag and PIQA are length-normalised accuracy. ``bpb'' is the mean over the four pipeline domains at 512 tokens. Training-token counts are as reported by each model's authors (n/r = not reported).}
+\label{tab:baselines}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{figs/base_bench_vs_size.pdf}
+\caption{Zero-shot accuracy vs.\ parameter count. The black line is the GPT-3 family (published). Grey points are open models measured with our harness. Coloured markers are A, B and C.}
+\label{fig:base_size}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{0.38\linewidth}\centering
+\includegraphics[width=\linewidth]{figs/base_bpb_rank.pdf}
+\end{minipage}\hfill
+\begin{minipage}{0.6\linewidth}\centering
+\includegraphics[width=\linewidth]{figs/base_efficiency.pdf}
+\end{minipage}
+\caption{Left: mean bits per byte on identical text for all ten measured models. Centre and right: HellaSwag against pre-training tokens and against pre-training compute. Compute for open models is estimated as $6ND$; GPT-3 compute is from the paper's Table~D.1.}
+\label{fig:base_eff}
+\end{figure}
+
+\paragraph{C vs.\ GPT-3.}
+\C{} is about the size of GPT-3 Medium (350M) but was trained on \tokratioCgptS$\times$ fewer tokens and with \flopsratioCgptS$\times$ less compute than even GPT-3 \emph{Small}.
+\begin{itemize}
+  \item \textbf{Against GPT-3 Small (125M),} C matches or beats it on three of four tasks: HellaSwag \hellaswagC{} vs.\ 33.7, ARC-Easy \arceasyC{} vs.\ 43.6, and PIQA \piqaC{} vs.\ 64.6. It falls well short on LAMBADA (\lambadaC{} vs.\ 42.7).
+  \item \textbf{Against GPT-3 Medium (350M),} C trails on HellaSwag (43.6), PIQA (70.2) and LAMBADA (54.3), but is ahead on ARC-Easy (46.5).
+\end{itemize}
+Modern data mixes rich in educational, code and math text explain most of the ARC-Easy gain. The remaining gaps track the 55$\times$ smaller token budget.
+
+\paragraph{A, B, C vs.\ open models of the same size.}
+\begin{itemize}
+  \item \textbf{B vs.\ GPT-2 124M} (which it slightly undercuts in size): B has better bpb (\meanbpbB{} vs.\ \bpbgptTwo) and ARC-Easy (\arceasyB{} vs.\ \arcgptTwo), similar PIQA (\piqaB{} vs.\ \piqagptTwo), but lower HellaSwag (\hellaswagB{} vs.\ \hsgptTwo) and LAMBADA (\lambadaB{} vs.\ \lambgptTwo).
+  \item \textbf{C vs.\ GPT-2 355M,} the closest 2019 model in size: C has better bpb (\meanbpbC{} vs.\ \bpbgptTwoMed) and ARC-Easy (\arceasyC{} vs.\ \arcgptTwoMed), and is behind on HellaSwag (\hellaswagC{} vs.\ \hsgptTwoMed) and LAMBADA (\lambadaC{} vs.\ \lambgptTwoMed).
+  \item \textbf{Pythia-410M and SmolLM2-360M,} trained on 55--730$\times$ more tokens than C, are ahead of C on every metric except Pythia's ARC-Easy. SmolLM2-360M is the strongest model measured: bpb \bpbsmolM, HellaSwag \hssmolM, ARC-Easy \arcsmolM, LAMBADA \lambsmolM. Even SmolLM2-135M, at under half of C's size, beats C on every metric (bpb \bpbsmolS, HellaSwag \hssmolS, ARC-Easy \arcsmolS).
+  \item \textbf{A} is below every open model on every metric. The smallest of them, OPT-125M, still has more than twice A's parameters and was trained on almost 500$\times$ more tokens.
+\end{itemize}
+
+\paragraph{What this means.}
+Figure~\ref{fig:base_eff} shows that, at this scale, \emph{training tokens} matter more than architecture:
+\begin{itemize}
+  \item Among models of comparable size, quality follows the data budget: A (0.4\,B) $<$ B (3.4\,B) $<$ C (5.5\,B) $<$ Pythia/OPT (180--300\,B) $<$ SmolLM2 (2--4\,T).
+  \item LAMBADA is the most data-hungry benchmark. C's LAMBADA score was still rising steeply during pre-training (14\% at 10\% of training to 31\% at the end, from the pipeline's snapshot evaluations), and post-training did not change it. B and C are therefore under-trained relative to their capacity, rather than limited by their design.
+  \item For their \emph{compute}, B and C are competitive. C reaches GPT-3-Small-level commonsense scores with about 5\% of GPT-3 Small's training FLOPs, on a two-GPU workstation.
+\end{itemize}
+
+\paragraph{Caveats specific to this comparison.}
+\begin{itemize}
+  \item \textbf{Different scoring protocol for GPT-3.} The GPT-3 numbers use the paper's own protocol: full test sets, and for ARC an answer normalisation by unconditional probability. They are therefore not strictly comparable with the measured rows.
+  \item \textbf{Different data for each model.} The bpb texts come from the B/C pipeline's sources, which favours models trained on similar web, code and math mixes (B, C, SmolLM2). GPT-2, OPT and Pythia never saw those exact distributions.
+  \item \textbf{Precision.} SmolLM2-360M was trained in bf16 and overflows in fp16, so it was evaluated in fp32. Its throughput is therefore not comparable with the other models.
+\end{itemize}
+
+\section{Overall comparison}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.62\linewidth]{figs/scorecard.pdf}
+\caption{Scorecard. Each row is min--max normalised, darker = better; raw values are printed in the cells.}
+\label{fig:score}
+\end{figure}
+
+\begin{table}[h]
+\centering\small
+\input{results/table_scorecard.tex}
+\caption{Headline numbers (best value in bold).}
+\label{tab:score}
+\end{table}
+
+\paragraph{Ranking.}
+\begin{enumerate}
+  \item \C{} --- best quality on every metric except A-test, the only model with reliable 4k-token context and usable math, code and chat skills. It costs the most to train, at roughly 9.5$\times$ the energy of B, and is the slowest to serve.
+  \item \B{} --- the efficiency sweet spot. About 92\% of C's bpb improvement over A at 29\% of its parameters, 2.4$\times$ its throughput and a fraction of its training energy. Its weak points are long-context retrieval and LAMBADA.
+  \item \A{} --- a useful educational baseline and the fastest model, but data-starved (\tppA{} tokens/param, repeated for 10 epochs), case-insensitive, limited to 512 tokens and without instruction tuning. Its quality per FLOP is the lowest of the three.
+\end{enumerate}
+
+\paragraph{Threats to validity.}
+\begin{itemize}
+  \item \textbf{A's lower-casing.} A predicts lower-cased, accent-stripped text while bpb is counted against the original bytes, which flatters A slightly.
+  \item \textbf{Possible contamination.} B's and C's corpora come from the same sources, so B's validation shards may overlap C's training data. This would favour C on the four pipeline domains. On A-test, which neither B nor C trained on, C still beats B by about 0.11\,bpb.
+  \item \textbf{Small benchmark samples.} With $n\le2000$ items, differences under about 2 points are within noise (see the intervals in Figure~\ref{fig:bench}).
+  \item \textbf{Not comparable across runs.} Energy figures, and the stage results for B and C, come from each run's own logs and were not re-measured.
+\end{itemize}
+
+\FloatBarrier
+\appendix
+\section{Greedy samples}
+{\small
+\input{results/table_samples.tex}
+}
+
+\section{Reproducing}
+\begin{verbatim}
+cd report
+python3 eval_compare.py --model A --gpu 1   # also B, C  -> results/*.json
+python3 gather_logs.py                      # training/energy/stage logs -> results/logs.json
+python3 make_figs.py                        # figs/*.pdf, results/*.tex
+latexmk -pdf report.tex
+\end{verbatim}
+\end{document}

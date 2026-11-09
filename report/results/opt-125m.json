@@ -1,0 +1,155 @@
+{
+ "model": "opt-125m",
+ "info": {
+  "repo": "facebook/opt-125m",
+  "max_len": 2048
+ },
+ "params": {
+  "embedding": 40183296,
+  "attention": 28366848,
+  "mlp": 56669184,
+  "norm": 19968,
+  "other": 0,
+  "total": 125239296
+ },
+ "ckpt_mb": 477.75,
+ "speed": {
+  "prefill_tok_s_bs1": 40524.064552165575,
+  "prefill_tok_s_bs8": 90260.74512441157,
+  "decode_ms_per_token_nocache": 10.66531240940094
+ },
+ "peak_vram_gb": 1.2783470153808594,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 1.0522882385010712,
+    "nats_per_token": 3.346720115893303,
+    "tokens": 143972,
+    "bytes": 660598,
+    "bytes_per_token": 4.5883782957797346
+   },
+   "2048": {
+    "bpb": 1.007020819620454,
+    "nats_per_token": 3.2027506445836824,
+    "tokens": 143972,
+    "bytes": 660598,
+    "bytes_per_token": 4.5883782957797346
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 1.3665729892856637,
+    "nats_per_token": 2.050509089392966,
+    "tokens": 263889,
+    "bytes": 571248,
+    "bytes_per_token": 2.164728351693326
+   },
+   "2048": {
+    "bpb": 1.1269548412140746,
+    "nats_per_token": 1.690967963923234,
+    "tokens": 263889,
+    "bytes": 571248,
+    "bytes_per_token": 2.164728351693326
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.2915809764811736,
+    "nats_per_token": 3.1262952704357176,
+    "tokens": 152956,
+    "bytes": 534133,
+    "bytes_per_token": 3.492069614791182
+   },
+   "2048": {
+    "bpb": 1.1906485471607178,
+    "nats_per_token": 2.8819864875069006,
+    "tokens": 152956,
+    "bytes": 534133,
+    "bytes_per_token": 3.492069614791182
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.0640338475452227,
+    "nats_per_token": 3.1328323023294824,
+    "tokens": 137165,
+    "bytes": 582639,
+    "bytes_per_token": 4.247723544636022
+   },
+   "2048": {
+    "bpb": 1.0211797762046737,
+    "nats_per_token": 3.006657162984305,
+    "tokens": 137165,
+    "bytes": 582639,
+    "bytes_per_token": 4.247723544636022
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.1936452307353766,
+    "nats_per_token": 3.4314967792185844,
+    "tokens": 162905,
+    "bytes": 675643,
+    "bytes_per_token": 4.147466314723305
+   },
+   "2048": {
+    "bpb": 1.1785075509538392,
+    "nats_per_token": 3.387978908013933,
+    "tokens": 162905,
+    "bytes": 675643,
+    "bytes_per_token": 4.147466314723305
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.318,
+   "acc_norm": 0.3455,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.432,
+   "acc_norm": 0.386,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6284004352557128,
+   "acc_norm": 0.6180631120783461,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.394,
+   "ppl": 10.925856069667857,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " the capital of the French Republic.\n\nThe capital of France is the capital of the French Republic.\n\nThe capital of France is the capital of the French Republic.\n\nThe capital of France is the capital of the French Republic.\n\nThe capital of France is the capital of the French Republic.\n",
+   "sample": " in the north of France, at the north-eastern corner of the Danube River, a small stream flowing in from the north of the city of Essaouais. The River is one of the main streams of the Danube River. It runs for about one kilometer, and it has an average water"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " a young man was walking along the shore of the sea. He was walking along the shore of the sea, and he saw a man, a young man, who was walking along the shore of the sea. He was walking along the shore of the sea, and he saw a man, a young man, who was",
+   "sample": " a young girl was walking down the street when she heard a man shout \u201cHoney! Honey!\u201d She had to run. She was terrified.\n\nThen she heard a woman shouting, \u201cHoney, hurry!\u201d\n\nWhen she came back, the woman ran away, and she"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": "\n\ndef fibonacci(n):\n\ndef fibonacci(n):\n\ndef fibonacci(n):\n\ndef fibonacci(n):\n\ndef fibonacci(n):\n\ndef fibonacci(n):\n\ndef fibonacci(n):\n",
+   "sample": " (n-1, n-2) = (n-1, n-2) = n-1, n-2, n-3, n-4, n-5, n-6, n-7, n-8, n-9, n-10, n-11,"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " about 100 degrees Fahrenheit.\n\nThe water boils at a temperature of about 100 degrees Fahrenheit.\n\nThe water boils at a temperature of about 100 degrees Fahrenheit.\n\nThe water boils at a temperature of about 100 degrees Fahrenheit.\n\nThe water boils at a temperature of about 100 degrees Fahrenheit.\n\nThe",
+   "sample": " 6.6 degrees Celsius (38 degrees Fahrenheit) in the Bay of Bengal and a maximum temperature of 6.6 degrees Celsius (38 degrees Fahrenheit) in the Gulf of Oman.\nOn Wednesday, the U.S. National Hurricane Center (NHC) announced a new high pressure system from northwest of the Gulf of"
+  }
+ ]
+}

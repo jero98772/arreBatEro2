@@ -1,0 +1,335 @@
+{
+ "model": "C",
+ "info": {
+  "step": 120,
+  "cfg": {
+   "vocab_size": 32768,
+   "n_layer": 28,
+   "n_head": 16,
+   "n_kv_head": 4,
+   "d_model": 1024,
+   "d_ff": 2752,
+   "max_seq_len": 4096,
+   "rope_theta": 10000.0,
+   "rope_scale": 4.0,
+   "rope_orig_len": 1024,
+   "pos_emb": "rope",
+   "norm": "rmsnorm",
+   "prenorm": true,
+   "window": 0,
+   "local_every": 2,
+   "n_experts": 0,
+   "moe_top_k": 2,
+   "moe_shared": true,
+   "moe_aux_coef": 0.01,
+   "dropout": 0.0,
+   "grad_ckpt": true
+  },
+  "max_len": 4096
+ },
+ "params": {
+  "embedding": 33554432,
+  "attention": 73400320,
+  "mlp": 236716032,
+  "norm": 58368,
+  "other": 0,
+  "total": 343729152
+ },
+ "ckpt_mb": 783.7025785446167,
+ "weights": [
+  {
+   "attn_rms": 0.08727044613739492,
+   "mlp_rms": 0.05429068099181006
+  },
+  {
+   "attn_rms": 0.050923345020956454,
+   "mlp_rms": 0.051579511285798754
+  },
+  {
+   "attn_rms": 0.05479756725117806,
+   "mlp_rms": 0.0538710596635795
+  },
+  {
+   "attn_rms": 0.05416385618221715,
+   "mlp_rms": 0.05550450575035205
+  },
+  {
+   "attn_rms": 0.055697327951027935,
+   "mlp_rms": 0.05563061924934877
+  },
+  {
+   "attn_rms": 0.05502406398361569,
+   "mlp_rms": 0.056105875472934386
+  },
+  {
+   "attn_rms": 0.053706059451102565,
+   "mlp_rms": 0.055277605161131976
+  },
+  {
+   "attn_rms": 0.05606892775377288,
+   "mlp_rms": 0.055270145521047205
+  },
+  {
+   "attn_rms": 0.05562815135229041,
+   "mlp_rms": 0.05640358257566459
+  },
+  {
+   "attn_rms": 0.055352976776905136,
+   "mlp_rms": 0.056511293605521824
+  },
+  {
+   "attn_rms": 0.05502217715526188,
+   "mlp_rms": 0.055994110825261324
+  },
+  {
+   "attn_rms": 0.050263336859417244,
+   "mlp_rms": 0.05695326886640744
+  },
+  {
+   "attn_rms": 0.05307663322500898,
+   "mlp_rms": 0.057105074396458295
+  },
+  {
+   "attn_rms": 0.0544884841098027,
+   "mlp_rms": 0.05735329639276598
+  },
+  {
+   "attn_rms": 0.05501432744097846,
+   "mlp_rms": 0.057627677839609114
+  },
+  {
+   "attn_rms": 0.05558624914722645,
+   "mlp_rms": 0.05760128697497527
+  },
+  {
+   "attn_rms": 0.054918798852946336,
+   "mlp_rms": 0.057717905513864076
+  },
+  {
+   "attn_rms": 0.05491063458088552,
+   "mlp_rms": 0.05764415622543988
+  },
+  {
+   "attn_rms": 0.05593327060252859,
+   "mlp_rms": 0.05788507312151035
+  },
+  {
+   "attn_rms": 0.0566602206451697,
+   "mlp_rms": 0.05803437163989043
+  },
+  {
+   "attn_rms": 0.056543320488371025,
+   "mlp_rms": 0.058226238654859014
+  },
+  {
+   "attn_rms": 0.05717746635198281,
+   "mlp_rms": 0.05831678515917305
+  },
+  {
+   "attn_rms": 0.05826478982165979,
+   "mlp_rms": 0.058628833725728545
+  },
+  {
+   "attn_rms": 0.05984904845806808,
+   "mlp_rms": 0.05902608030296079
+  },
+  {
+   "attn_rms": 0.06462431501546868,
+   "mlp_rms": 0.05960847342752095
+  },
+  {
+   "attn_rms": 0.06310709644238557,
+   "mlp_rms": 0.0599752400564804
+  },
+  {
+   "attn_rms": 0.06235611117822496,
+   "mlp_rms": 0.06004765858724789
+  },
+  {
+   "attn_rms": 0.06053945434380489,
+   "mlp_rms": 0.058182692450398255
+  }
+ ],
+ "speed": {
+  "prefill_tok_s_bs1": 14833.597528797085,
+  "prefill_tok_s_bs8": 27377.335192924038,
+  "decode_ms_per_token_nocache": 31.189002096652985
+ },
+ "peak_vram_gb": 2.2108192443847656,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 1.071432065982453,
+    "nats_per_token": 3.2701202273579404,
+    "tokens": 150025,
+    "bytes": 660598,
+    "bytes_per_token": 4.403252791201466
+   },
+   "2048": {
+    "bpb": 1.0537257535724376,
+    "nats_per_token": 3.216078751279084,
+    "tokens": 150025,
+    "bytes": 660598,
+    "bytes_per_token": 4.403252791201466
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 0.7213525392569105,
+    "nats_per_token": 1.8948128726998783,
+    "tokens": 150741,
+    "bytes": 571248,
+    "bytes_per_token": 3.789599379067407
+   },
+   "2048": {
+    "bpb": 0.5952567653024383,
+    "nats_per_token": 1.5635907826964028,
+    "tokens": 150741,
+    "bytes": 571248,
+    "bytes_per_token": 3.789599379067407
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.0958475547746231,
+    "nats_per_token": 2.7028992368102744,
+    "tokens": 150105,
+    "bytes": 534133,
+    "bytes_per_token": 3.558395789613937
+   },
+   "2048": {
+    "bpb": 1.0044953269544303,
+    "nats_per_token": 2.4775796968977186,
+    "tokens": 150105,
+    "bytes": 534133,
+    "bytes_per_token": 3.558395789613937
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.0750754903466875,
+    "nats_per_token": 2.892315527413359,
+    "tokens": 150113,
+    "bytes": 582639,
+    "bytes_per_token": 3.8813360601680067
+   },
+   "2048": {
+    "bpb": 1.0295782429143951,
+    "nats_per_token": 2.7699125925640575,
+    "tokens": 150113,
+    "bytes": 582639,
+    "bytes_per_token": 3.8813360601680067
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.3261082273861824,
+    "nats_per_token": 3.68346386942614,
+    "tokens": 168603,
+    "bytes": 675643,
+    "bytes_per_token": 4.007301174949437
+   },
+   "2048": {
+    "bpb": 1.3054721826644105,
+    "nats_per_token": 3.6261441698942756,
+    "tokens": 168603,
+    "bytes": 675643,
+    "bytes_per_token": 4.007301174949437
+   }
+  }
+ },
+ "ablation": {
+  "base_bpb": 1.0532930367080215,
+  "delta_bpb": [
+   2.203181859547947,
+   0.9122629302327683,
+   0.022485933226076282,
+   0.033224293361394874,
+   0.008226966526104329,
+   0.015417286365498217,
+   -0.005470672229021423,
+   -0.02572878476496676,
+   0.019639709980241893,
+   0.02113807189334005,
+   0.008002076817497317,
+   -0.010002241007676549,
+   0.004008627258021313,
+   0.004688409486073741,
+   0.022842465490208408,
+   0.01062890952086426,
+   -0.030386249283484323,
+   0.036579272523780126,
+   0.00033882644553395735,
+   0.003428727095340589,
+   -0.015461992715749107,
+   0.027374032024305883,
+   0.009614309627165696,
+   0.02627655633004622,
+   0.05774364988410041,
+   0.04121194291077357,
+   0.05664058823414031,
+   0.18746614424264663
+  ]
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.3435,
+   "acc_norm": 0.357,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.5605,
+   "acc_norm": 0.5085,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6713819368879217,
+   "acc_norm": 0.6664853101196954,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.329,
+   "ppl": 10.644774856594351,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " Paris. The current population of Paris is 271,088 in 2021. The average age of the population is 38.4 years. The standard deviation is 18.5 years. \n\na) What is the probability that a randomly selected person from the population will",
+   "sample": " Paris. The current population is 251,043 in 2017. The weather is usually sunny in summer. This is the region known for its culture, history, and cuisine. Paris is also the seat of the largest city in France The ticket number of Tara is 89"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " there lived a kind and wise old man named Mr. Gatsby. He was known throughout the land for his love of literature and his wisdom on the subject of friendship. One day, a young girl named Lily walked into the village, curious about the world beyond her village.\n\nLily: (gazing out",
+   "sample": " there lived two best friends named Sam and Alex. They were both very curious and loved learning about the world around them. One day, they decided to go on an adventure to find out more about the ocean.\n\nAs they sailed across the calm waters, Sam and Alex noticed how the water was smooth and refreshing. They"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": " \n    # calculate the nth Fibonacci number\n    fib_n = 0\n    for i in range(2, n):\n        fib_n = fib_n + fib_n\n    return fib_n\n\n# Driver Program \nn = 10\nprint(\"Fibonacci Number\", n, \"is",
+   "sample": " # Python 3 program to calculate Fibonacci sequence\n    fib_sequence = [0, 1]\n    while len(fib_sequence) < n:\n        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])\n    return fib_sequence\n\nn = 10\nfib_sequence = fibonacci"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " 100 degrees Fahrenheit and 100 degrees Celsius, respectively. If you pour water into a kettle that is at the same temperature as the kettle, how many times will the water boil before it reaches a temperature of 100 degrees Fahrenheit and 100 degrees Celsius?\n\nA.",
+   "sample": " 100 degrees Fahrenheit and 50 degrees Celsius, respectively. If you take a plain old brick and turn it on, what is the final temperature? (Note: The brick is not fired, it is only fired in a kiln.)\n\n1.25\n100\n-> 2"
+  },
+  {
+   "mode": "chat",
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "greedy": "The sky appears blue because of the way sunlight interacts with the Earth's atmosphere. When sunlight reaches the Earth's surface, it collides with molecules in the atmosphere, causing the molecules to scatter the light in all directions. Blue light is scattered more than other colors because it travels in smaller, smaller waves, so the sky appears blue to us."
+  },
+  {
+   "mode": "chat",
+   "prompt": "What is 12 * 7?",
+   "greedy": "10 * 7 = 70; 2 * 7 = 14; 70 + 14 = 84The answer is 84."
+  }
+ ]
+}

@@ -1,0 +1,120 @@
+{
+ "model": "gpt2",
+ "info": {
+  "repo": "openai-community/gpt2",
+  "max_len": 1024
+ },
+ "params": {
+  "embedding": 39383808,
+  "attention": 28348416,
+  "mlp": 56669184,
+  "norm": 38400,
+  "other": 0,
+  "total": 124439808
+ },
+ "ckpt_mb": 474.7001953125,
+ "speed": {
+  "prefill_tok_s_bs1": 34632.81115741398,
+  "prefill_tok_s_bs8": 51137.868457398676,
+  "decode_ms_per_token_nocache": 11.002982966601849
+ },
+ "peak_vram_gb": 1.2544288635253906,
+ "bpb": {
+  "web": {
+   "512": {
+    "bpb": 1.0680382079463957,
+    "nats_per_token": 3.3968116570117854,
+    "tokens": 143972,
+    "bytes": 660598,
+    "bytes_per_token": 4.5883782957797346
+   }
+  },
+  "code": {
+   "512": {
+    "bpb": 1.4024016747876928,
+    "nats_per_token": 2.1042532009250503,
+    "tokens": 263891,
+    "bytes": 571248,
+    "bytes_per_token": 2.164711945462331
+   }
+  },
+  "math": {
+   "512": {
+    "bpb": 1.3142788783722377,
+    "nats_per_token": 3.1812359552421583,
+    "tokens": 152956,
+    "bytes": 534133,
+    "bytes_per_token": 3.492069614791182
+   }
+  },
+  "wiki": {
+   "512": {
+    "bpb": 1.186822248118761,
+    "nats_per_token": 3.494357895294046,
+    "tokens": 137165,
+    "bytes": 582639,
+    "bytes_per_token": 4.247723544636022
+   }
+  },
+  "a_test": {
+   "512": {
+    "bpb": 1.2972546214665017,
+    "nats_per_token": 3.7293535304843,
+    "tokens": 162905,
+    "bytes": 675643,
+    "bytes_per_token": 4.147466314723305
+   }
+  }
+ },
+ "bench": {
+  "hellaswag": {
+   "acc": 0.322,
+   "acc_norm": 0.3475,
+   "n": 2000,
+   "chance": 0.25
+  },
+  "arc_easy": {
+   "acc": 0.4445,
+   "acc_norm": 0.3855,
+   "n": 2000,
+   "chance": 0.25021666666666664
+  },
+  "piqa": {
+   "acc": 0.6305767138193689,
+   "acc_norm": 0.6218715995647442,
+   "n": 1838,
+   "chance": 0.5
+  },
+  "lambada": {
+   "acc": 0.345,
+   "ppl": 15.166808151069223,
+   "n": 2000
+  }
+ },
+ "samples": [
+  {
+   "mode": "raw",
+   "prompt": "The capital of France is",
+   "greedy": " now home to the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the world's largest concentration of the",
+   "sample": " home to the world's largest public nuclear plant. It is the third-largest city in France, with over 60 percent of its population being French citizens.\n\nThe Ministry of Energy (MEP) in the capital told AFP news agency that nuclear plants were set to open in 2016, and plans are being made for"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Once upon a time, in a small village by the sea,",
+   "greedy": " a young man named Togami was a young man who had been raised by his father. He had been raised by his father's father, and he had been raised by his father's father. He had been raised by his father's father, and he had been raised by his father's father. He had been",
+   "sample": " a young boy named Qunze was saved from drowning by an old woman, who told him that he should swim for two hours before coming back home. But he was too young to even swim at that time. Soon after that, after his wife and two young children died, they came to a small town called J"
+  },
+  {
+   "mode": "raw",
+   "prompt": "def fibonacci(n):",
+   "greedy": " return n + 1\n\ndef fibonacci(n): return n + 1\n\ndef fibonacci(n): return n + 1\n\ndef fibonacci(n): return n + 1\n\ndef fibonacci(n): return n + 1\n\ndef fibonacci(n",
+   "sample": " \"\"\" Returns a fibonacci from n. \"\"\" return n - 1 if n < 1 else n, fibonacci(n) # Return n, so n is an integer. return fibonacci(n)\n\nfrom fibonacci import 'abcdefghijklmnopqrstuvw"
+  },
+  {
+   "mode": "raw",
+   "prompt": "Water boils at a temperature of",
+   "greedy": " about 1,000 degrees Fahrenheit (1,200 degrees Celsius). The water is then heated by a process called \"water-cooling.\"\n\nThe process is called \"water-cooling\" because it is a process that involves heating water to a temperature of about 1,000 degrees Fahrenheit (1,200 degrees",
+   "sample": " 80 degrees F (21 degrees C).\n\nThe temperature in the laboratory indicates that it's just below freezing.\n\nWhat's a \"proper temperature\" for a water boil?\n\nThe answer depends on what kind of water is being boiled and how much of it is in the kettle. The most common"
+  }
+ ]
+}
