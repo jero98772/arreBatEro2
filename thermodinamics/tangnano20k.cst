@@ -1,0 +1,15 @@
+// Tang Nano 20K (GW2AR-LV18QN88C8/I7) -- pines para fpga_top de th.v
+IO_LOC  "clk" 4;
+IO_PORT "clk" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+// UART del BL616 (aparece en el PC como /dev/ttyUSB1)
+IO_LOC  "uart_txd" 69;
+IO_PORT "uart_txd" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+IO_LOC  "uart_rxd" 70;
+IO_PORT "uart_rxd" IO_TYPE=LVCMOS33 PULL_MODE=UP;
+
+// LEDs 0 y 1 (activos en bajo)
+IO_LOC  "led_done" 15;
+IO_PORT "led_done" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
+IO_LOC  "led_run" 16;
+IO_PORT "led_run" IO_TYPE=LVCMOS33 PULL_MODE=UP DRIVE=8;
